@@ -33,10 +33,10 @@ export default function Overlay() {
 
                         <div className="mb-8 flex flex-col items-center">
                             <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-bold text-black leading-[1.0] tracking-tight">
-                                Full-stack Developer
+                                Web Developer
                             </MaskedText>
                             <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-light text-black leading-[1.0] tracking-tight italic font-serif">
-                                UI & UX Designer.
+                                WordPress Developer.
                             </MaskedText>
                         </div>
 
