@@ -16,8 +16,8 @@ export default function Overlay() {
             <FrameUI /> {/* Rendered FrameUI component */}
             <Navbar />
 
-            {/* Scrollable Container */}
-            <div className="absolute top-0 left-0 w-full h-screen z-10 overflow-y-auto overflow-x-hidden scroll-smooth">
+            {/* Content Container - Flows naturally now */}
+            <div className="relative w-full z-10">
 
                 {/* Hero Section Container - Centered */}
                 <section className="h-screen w-full flex flex-col justify-center items-center text-center relative z-10 p-6 md:p-12">
