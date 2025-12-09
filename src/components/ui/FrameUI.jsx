@@ -32,11 +32,9 @@ export default function FrameUI() {
             </div>
 
             {/* Right Sidebar - Vertical Text (Kept as is, assuming user only wanted left sidebar changed) */}
-            <div className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 pointer-events-auto">
-                <div className="rotate-90 origin-right translate-x-1/2 whitespace-nowrap">
-                    <span className="text-sm font-semibold tracking-[0.2em] uppercase opacity-40">
-                        Yash • Creative Developer
-                    </span>
+            <div className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 pointer-events-auto flex items-center justify-center">
+                <div className="[writing-mode:vertical-rl] rotate-180 text-sm font-bold tracking-[0.2em] uppercase text-black whitespace-nowrap">
+                    YASHKUMAR N. CHANIYARA
                 </div>
             </div>
         </div>

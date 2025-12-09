@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SmoothScroll>
-          <Preloader />
+          {/* <Preloader /> - Disabled by user request */}
           <Cursor />
           <GrainOverlay />
           {children}
