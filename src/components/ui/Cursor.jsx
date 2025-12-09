@@ -24,6 +24,12 @@ export default function Cursor() {
         mouse.y.set(clientY - cursorSize / 2);
     }
 
+    const manageTouchMove = (e) => {
+        const { clientX, clientY } = e.touches[0];
+        mouse.x.set(clientX - cursorSize / 2);
+        mouse.y.set(clientY - cursorSize / 2);
+    }
+
     const manageMouseOver = (e) => {
         // Tag interactive elements
         if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button')) {
@@ -35,12 +41,14 @@ export default function Cursor() {
 
     useEffect(() => {
         window.addEventListener("mousemove", manageMouseMove);
+        window.addEventListener("touchmove", manageTouchMove); // Add touch support
         window.addEventListener("mouseover", manageMouseOver);
         return () => {
             window.removeEventListener("mousemove", manageMouseMove);
+            window.removeEventListener("touchmove", manageTouchMove);
             window.removeEventListener("mouseover", manageMouseOver);
         }
-    }, [isHovered]); // Re-bind if size changes logic needed, or just handle state
+    }, [isHovered]);
 
     return (
         <motion.div
@@ -54,7 +62,7 @@ export default function Cursor() {
                 width: cursorSize,
                 height: cursorSize
             }}
-            className="fixed rounded-full bg-white mix-blend-difference pointer-events-none z-[9999] hidden md:block" // Hidden on mobile
+            className="fixed rounded-full bg-white mix-blend-difference pointer-events-none z-[9999]" // Removed hidden md:block
         />
     )
 }
