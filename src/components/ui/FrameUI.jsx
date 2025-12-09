@@ -5,25 +5,31 @@ import Magnetic from "@/components/bits/Magnetic";
 
 export default function FrameUI() {
     return (
-        <div className="fixed inset-0 z-40 pointer-events-none mix-blend-difference text-white md:block hidden">
+        <div className="fixed inset-0 z-40 pointer-events-none text-black md:block hidden">
             {/* Left Sidebar - Line & Socials */}
-            <div className="absolute left-8 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 pointer-events-auto">
-                <div className="w-[1px] h-32 bg-current opacity-40"></div>
+            <div className="absolute left-8 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-10 pointer-events-auto">
+                {/* Vertical Line with Dots */}
+                <div className="relative flex flex-col items-center">
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                    <div className="w-[1px] h-40 bg-black/20 my-2" />
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                </div>
 
-                <div className="flex flex-col gap-6">
+                {/* Social Icons Stack */}
+                <div className="flex flex-col gap-6 mt-4">
                     <Magnetic>
-                        <a href="#" className="hover:opacity-100 opacity-60 transition-opacity">
-                            <Linkedin size={20} />
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 opacity-40 transition-opacity">
+                            <Linkedin size={20} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="#" className="hover:opacity-100 opacity-60 transition-opacity">
-                            <MessageCircle size={20} />
+                        <a href="mailto:hello@yash.dev" className="hover:opacity-100 opacity-40 transition-opacity">
+                            <MessageCircle size={20} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="#" className="hover:opacity-100 opacity-60 transition-opacity">
-                            <Github size={20} />
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 opacity-40 transition-opacity">
+                            <Github size={20} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                 </div>
