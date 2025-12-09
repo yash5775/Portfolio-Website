@@ -5,7 +5,24 @@ import ShinyButton from "@/components/bits/ShinyButton";
 import Magnetic from "@/components/bits/Magnetic";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+
+const TimeDisplay = () => {
+    const [time, setTime] = useState("");
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            setTime(`${timeString} UTC+5:30`);
+        };
+        updateTime();
+        const interval = setInterval(updateTime, 60000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return <p className="text-white/80 text-sm">{time}</p>;
+};
 
 export default function LargeFooter() {
     const container = useRef(null);
@@ -47,24 +64,59 @@ export default function LargeFooter() {
                             </div>
                         </div>
 
-                        {/* Bottom Section */}
-                        <div className="flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-12 relative z-10">
-                            <div className="flex gap-4 mb-8 md:mb-0">
-                                <Magnetic>
-                                    <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white hover:text-black transition-all duration-300">
-                                        <ArrowUpRight size={20} />
-                                    </button>
-                                </Magnetic>
-                                <Magnetic>
-                                    <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white hover:text-black transition-all duration-300">
-                                        <ArrowUpRight size={20} />
-                                    </button>
-                                </Magnetic>
-                            </div>
+                        {/* Bottom Section - Detailed Grid */}
+                        <div className="flex flex-col gap-12 border-t border-white/10 pt-12 relative z-10 font-sans">
+                            <div className="flex flex-col lg:flex-row justify-between gap-10 items-start lg:items-center">
 
-                            <div className="text-white/20 text-sm">
-                                <p>© 2025 YASH. </p>
-                                <p>Designed & Developed with Passion.</p>
+                                {/* Left Side: Data Grid */}
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-8 w-full lg:w-auto">
+
+                                    {/* Column 1: Links */}
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="text-white/40 text-xs font-semibold tracking-wider uppercase">Links</h3>
+                                        <ul className="flex flex-col gap-3">
+                                            {['Home', 'Work', 'About', 'Contact'].map((item) => (
+                                                <li key={item}>
+                                                    <a href={`#${item.toLowerCase()}`} className="text-white/80 hover:text-white text-sm transition-colors">{item}</a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Column 2: Socials */}
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="text-white/40 text-xs font-semibold tracking-wider uppercase">Socials</h3>
+                                        <ul className="flex flex-col gap-3">
+                                            {['Email', 'LinkedIn', 'WhatsApp', 'Github'].map((item) => (
+                                                <li key={item}>
+                                                    <a href="#" className="text-white/80 hover:text-white text-sm transition-colors">{item}</a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Column 3: Local Time */}
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="text-white/40 text-xs font-semibold tracking-wider uppercase">Local Time</h3>
+                                        <TimeDisplay />
+                                    </div>
+
+                                    {/* Column 4: Version */}
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="text-white/40 text-xs font-semibold tracking-wider uppercase">Version</h3>
+                                        <p className="text-white/80 text-sm">2025 © Edition</p>
+                                    </div>
+                                </div>
+
+                                {/* Right Side: Actions */}
+                                <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto mt-4 lg:mt-0">
+                                    <a href="tel:+213779577865" className="px-6 py-3 rounded-full border border-white/20 text-white/80 hover:bg-white hover:text-black hover:border-white transition-all duration-300 text-sm flex items-center justify-center">
+                                        +91 98765 43210
+                                    </a>
+                                    <a href="mailto:hello@yash.dev" className="px-6 py-3 rounded-full border border-white/20 text-white/80 hover:bg-white hover:text-black hover:border-white transition-all duration-300 text-sm flex items-center justify-center">
+                                        hello@yash.dev
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
