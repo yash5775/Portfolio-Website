@@ -6,36 +6,32 @@ import Magnetic from "@/components/bits/Magnetic";
 export default function FrameUI() {
     return (
         <div className="fixed inset-0 z-40 pointer-events-none text-black md:block hidden">
-            {/* Left Sidebar - Line & Socials */}
-            <div className="absolute left-8 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-10 pointer-events-auto">
-                {/* Vertical Line with Dots */}
-                <div className="relative flex flex-col items-center">
-                    <div className="w-1 h-1 bg-black rounded-full" />
-                    <div className="w-[1px] h-40 bg-black/20 my-2" />
-                    <div className="w-1 h-1 bg-black rounded-full" />
+            <div className="z-50 flex-col flex lg:h-[80vh] h-[85vh] px-5 lg:px-9 pt-[5rem] lg:-mt-3 xl:mt-10 py-5 lg:py-10 items-center left-0 top-0 absolute justify-end lg:justify-between pointer-events-auto">
+                <div className="item lg:block hidden lg:mb-14 h-[40vh] w-[1px] bg-gray-700 relative">
+                    <div className="absolute bottom-0 right-[50%] transform translate-x-[50%] h-[.3rem] bg-black rounded-[50%] w-[.3rem]"></div>
+                    <div className="absolute top-0 right-[50%] transform translate-x-[50%] h-[.3rem] bg-black rounded-[50%] w-[.3rem]"></div>
                 </div>
 
-                {/* Social Icons Stack */}
-                <div className="flex flex-col gap-6 mt-4">
+                <div className="flex item z-50 w-full flex-col gap-6 lg:gap-5 xl:gap-8 items-center">
                     <Magnetic>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 opacity-40 transition-opacity">
-                            <Linkedin size={20} strokeWidth={1.5} />
+                        <a href="https://www.linkedin.com/in/aziz-khaldi-b28207261/" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-black/80 lg:text-2xl text-xl transition-colors">
+                            <Linkedin size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="mailto:hello@yash.dev" className="hover:opacity-100 opacity-40 transition-opacity">
-                            <MessageCircle size={20} strokeWidth={1.5} />
+                        <a href="https://wa.me/213779577865" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-black/80 lg:text-2xl text-xl transition-colors">
+                            <MessageCircle size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 opacity-40 transition-opacity">
-                            <Github size={20} strokeWidth={1.5} />
+                        <a href="https://github.com/AzizKhaldi01" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-black/80 lg:text-2xl text-xl transition-colors">
+                            <Github size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                 </div>
             </div>
 
-            {/* Right Sidebar - Vertical Text */}
+            {/* Right Sidebar - Vertical Text (Kept as is, assuming user only wanted left sidebar changed) */}
             <div className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 pointer-events-auto">
                 <div className="rotate-90 origin-right translate-x-1/2 whitespace-nowrap">
                     <span className="text-xs font-semibold tracking-[0.2em] uppercase opacity-40">
