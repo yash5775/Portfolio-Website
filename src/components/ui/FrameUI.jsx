@@ -7,7 +7,7 @@ export default function FrameUI() {
     return (
         <div className="fixed inset-0 z-40 pointer-events-none text-black md:block hidden">
             <div className="z-50 flex-col flex lg:h-[80vh] h-[85vh] px-5 lg:px-9 pt-[8rem] lg:pt-[10rem] lg:-mt-3 xl:mt-10 py-5 lg:py-10 items-center left-0 top-0 absolute justify-end lg:justify-between pointer-events-auto">
-                <div className="item lg:block hidden lg:mb-14 h-[40vh] w-[1px] bg-gray-700 relative">
+                <div className="item lg:block hidden lg:mb-14 h-[50vh] w-[1px] bg-gray-700 relative">
                     <div className="absolute bottom-0 right-[50%] transform translate-x-[50%] h-[.3rem] bg-black rounded-[50%] w-[.3rem]"></div>
                     <div className="absolute top-0 right-[50%] transform translate-x-[50%] h-[.3rem] bg-black rounded-[50%] w-[.3rem]"></div>
                 </div>
@@ -34,7 +34,7 @@ export default function FrameUI() {
             {/* Right Sidebar - Vertical Text (Kept as is, assuming user only wanted left sidebar changed) */}
             <div className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 pointer-events-auto">
                 <div className="rotate-90 origin-right translate-x-1/2 whitespace-nowrap">
-                    <span className="text-xs font-semibold tracking-[0.2em] uppercase opacity-40">
+                    <span className="text-sm font-semibold tracking-[0.2em] uppercase opacity-40">
                         Yash • Creative Developer
                     </span>
                 </div>

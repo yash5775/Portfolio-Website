@@ -9,7 +9,7 @@ import Magnetic from '@/components/bits/Magnetic';
 const RollingLink = ({ title, onClick }) => (
     <button
         onClick={onClick}
-        className="relative overflow-hidden cursor-pointer group text-lg font-medium text-black"
+        className="relative overflow-hidden cursor-pointer group text-lg font-normal text-black"
     >
         <span className="block transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
             {title}
@@ -29,17 +29,17 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 md:py-8 flex justify-between items-center bg-transparent pointer-events-none"
+                className="fixed top-0 left-0 w-full z-50 p-4 md:p-8 pt-6 md:pt-12 flex justify-between items-center bg-transparent pointer-events-none"
             >
                 {/* Logo - Assuming Text if Image not available, wrapped to match user structure */}
                 <div className="pointer-events-auto">
-                    <a href="/" className="text-black text-2xl font-bold tracking-tight font-sans relative z-50">
+                    <a href="/" className="text-black text-xl font-medium tracking-tight font-sans relative z-50">
                         YASH.
                     </a>
                 </div>
 
                 {/* Desktop Menu - User's Structure */}
-                <div className="hidden md:flex items-center gap-8 justify-end pointer-events-auto">
+                <div className="hidden md:flex items-center gap-5 justify-end pointer-events-auto">
                     <RollingLink title="Home" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
                     <RollingLink title="About" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} />
                     <RollingLink title="Work" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })} />

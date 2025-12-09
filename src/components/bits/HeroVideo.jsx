@@ -8,7 +8,7 @@ export default function HeroVideo() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover opacity-100 scale-100 md:scale-75 lg:scale-50"
+                className="w-full h-full object-cover opacity-100 scale-100 md:scale-90"
             >
                 <source src="/assets/glassy-loop.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
