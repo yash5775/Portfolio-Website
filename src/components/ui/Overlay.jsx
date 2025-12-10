@@ -1,6 +1,34 @@
 'use client';
 
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from './Navbar';
+
+const Curve = () => {
+    const { scrollY } = useScroll();
+    // Map scroll range [0, 600] to curve control point Y
+    // At scrollY=0: curveValue = 100 (flat line at bottom)
+    // At scrollY=600: curveValue = 0 (deep curve peak at top)
+    // This makes the curve get DEEPER (more bent) as you scroll down
+    const curveValue = useTransform(scrollY, [0, 600], [100, 0]);
+
+    // SVG Path: Creates only the curved part (bottom arc)
+    // M0,100 - Start at bottom-left
+    // Q50,${curve} 100,100 - Curved line with animated control point
+    // L100,100 L0,100 Z - Close shape at bottom
+    const path = useTransform(
+        curveValue,
+        (value) => `M0 100 Q50 ${value} 100 100 L100 100 L0 100 Z`
+    );
+
+    return (
+        <div className="absolute top-[-100px] left-0 w-full h-[100px] overflow-hidden z-40 pointer-events-none">
+            {/* White colored SVG to match the light content section */}
+            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <motion.path d={path} fill="#e7e7e7" />
+            </svg>
+        </div>
+    );
+}
 import StorySection from './StorySection';
 import ProfileAboutSection from './ProfileAboutSection';
 import ServicesPinned from './ServicesPinned';
@@ -47,12 +75,15 @@ export default function Overlay() {
                 </section>
 
                 {/* Dark Content Section with Curve Transition and Strict Order */}
-                <div className="relative w-full bg-[#e7e7e7] mt-[20vh] z-10">
+                <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+                    className="relative w-full bg-[#e7e7e7] mt-[20vh] z-10"
+                >
 
-                    {/* Curve Transition */}
-                    <div className="overflow-hidden absolute left-1/2 -translate-x-1/2 w-full lg:-top-[3rem] -top-[2rem] lg:h-[4rem] h-[2rem] z-40 mb-14">
-                        <div className="absolute right-[-10%] rounded-[50%] h-[150%] w-[120%] bg-[#e7e7e7]"></div>
-                    </div>
+                    {/* Dynamic Curve Transition */}
+                    <Curve />
 
                     {/* 1. Story Marquee (White Card) */}
                     <div className="pt-20 lg:pt-32 pb-20">
@@ -71,11 +102,11 @@ export default function Overlay() {
                     {/* 5. Experience (Timeline) */}
                     <ExperienceSection />
 
-                </div>
+                </motion.div>
 
                 {/* Large Footer */}
                 <LargeFooter />
             </div>
-        </div >
+        </div>
     );
 }
