@@ -46,14 +46,7 @@ export default function ProfileAboutSection() {
         <div className="w-full flex flex-col items-center relative z-20 pb-20">
 
             {/* Profile Photo - Matches 'profile-photo' class */}
-            <div className="w-[90%] md:w-[60%] mx-auto z-20 rounded-lg overflow-hidden mb-10 lg:mb-20">
-                <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[16/9] w-full bg-[#1a1a1a] grayscale hover:grayscale-0 transition-all duration-700">
-                    {/* Placeholder for 'me-sitting.png' */}
-                    <div className="absolute inset-0 flex items-center justify-center text-white/10 text-4xl font-bold uppercase">
-                        Profile Image
-                    </div>
-                </div>
-            </div>
+
 
             {/* More About Me - Matches 'more-about-me' class */}
             <div className="w-full max-w-[1400px] px-6 md:px-12 lg:px-24">

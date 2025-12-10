@@ -167,19 +167,10 @@ export default function Overlay() {
 
 
 
-                    {/* Curved Text Loop Separator */}
-                    <div className="pb-20">
-                        <CurvedLoop
-                            marqueeText="FULL STACK DEVELOPER ✦ CREATIVE TECHNOLOGIST ✦"
-                            speed={3}
-                            curveAmount={200}
-                            direction="right"
-                            interactive={true}
-                            className="text-black fill-black"
-                        />
-                    </div>
 
-                    {/* 2. Profile Photo & About Text */}
+
+
+                    {/* 2. Profile Photo & About Text (Restored Text Only) */}
                     <ProfileAboutSection />
 
                     {/* 3. Pinned Services (Sticky Cards) */}
