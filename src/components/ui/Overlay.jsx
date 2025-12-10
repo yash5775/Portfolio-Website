@@ -12,7 +12,7 @@ const ScrollStoryCard = () => {
         offset: ["start end", "start 15%"]
     });
 
-    const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
+    const scale = useTransform(scrollYProgress, [0, 1], [0.60, 1]);
     const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
     const borderRadius = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
