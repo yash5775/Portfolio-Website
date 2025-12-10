@@ -1,19 +1,12 @@
 'use client';
 
 import CurvedLoop from '@/components/bits/CurvedLoop';
+import Image from 'next/image';
 
 export default function StorySection() {
     return (
-        <div className="w-full h-full relative overflow-hidden bg-[#111111] flex flex-col">
-            {/* Noise Texture */}
-            <div className="absolute inset-0 opacity-[0.4] pointer-events-none mix-blend-overlay z-10">
-                <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
-                    <filter id='noise'>
-                        <feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' />
-                    </filter>
-                    <rect width='100%' height='100%' filter='url(#noise)' />
-                </svg>
-            </div>
+        <div className="w-full h-full relative overflow-hidden bg-[#1a1a1a] flex flex-col">
+            {/* Noise Texture Removed for consistent black color */}
 
             <div className="flex-none z-20 pt-2 pb-12 overflow-visible">
                 <CurvedLoop
@@ -28,12 +21,15 @@ export default function StorySection() {
 
             {/* Image Section - Matches reference placement */}
             <div className="flex-1 w-full relative z-20 overflow-hidden px-8 md:px-20">
-                <div className="w-full h-[60vh] md:h-[80vh] bg-[#1a1a1a] grayscale relative">
-                    {/* Placeholder for the large image shown in reference */}
-                    <div className="absolute inset-0 flex items-center justify-center text-white/5 text-[10rem] font-bold uppercase select-none overflow-hidden">
-                        PROFILE
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-50"></div>
+                <div className="w-full h-[60vh] md:h-[80vh] relative grayscale hover:grayscale-0 transition-all duration-700">
+                    <Image
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop"
+                        alt="Profile"
+                        fill
+                        className="object-cover rounded-md"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-50"></div>
                 </div>
             </div>
         </div>
