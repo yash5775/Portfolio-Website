@@ -3,7 +3,7 @@ import Overlay from '@/components/ui/Overlay';
 
 export default function Home() {
   return (
-    <main className="relative w-full min-h-screen bg-[#e7e7e7]">
+    <main className="relative w-full min-h-screen bg-[#111111]">
       {/* Replaced 3D Scene with Video */}
       <HeroVideo />
 

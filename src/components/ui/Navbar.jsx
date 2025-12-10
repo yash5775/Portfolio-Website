@@ -9,12 +9,12 @@ import Magnetic from '@/components/bits/Magnetic';
 const RollingLink = ({ title, onClick }) => (
     <button
         onClick={onClick}
-        className="relative overflow-hidden cursor-pointer group text-lg font-normal text-black"
+        className="relative overflow-hidden cursor-pointer group text-lg font-normal text-white"
     >
         <span className="block transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
             {title}
         </span>
-        <span className="block absolute top-0 left-0 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] translate-y-full group-hover:translate-y-0 text-black">
+        <span className="block absolute top-0 left-0 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] translate-y-full group-hover:translate-y-0 text-white">
             {title}
         </span>
     </button>
@@ -33,7 +33,7 @@ export default function Navbar() {
             >
                 {/* Logo - Assuming Text if Image not available, wrapped to match user structure */}
                 <div className="pointer-events-auto">
-                    <a href="/" className="text-black text-xl font-medium tracking-tight font-sans relative z-50">
+                    <a href="/" className="text-white text-xl font-medium tracking-tight font-sans relative z-50">
                         YASH.
                     </a>
                 </div>
@@ -53,7 +53,7 @@ export default function Navbar() {
                         className="text-black z-50 relative p-1"
                         aria-label="Toggle Menu"
                     >
-                        <svg viewBox="0 0 32 32" className="w-8 h-8 fill-none stroke-current stroke-[2] text-black">
+                        <svg viewBox="0 0 32 32" className="w-8 h-8 fill-none stroke-current stroke-[2] text-white">
                             <path
                                 d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
                                 className="transition-all duration-300"
@@ -72,12 +72,12 @@ export default function Navbar() {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-0 z-[60] bg-[#e7e7e7] flex flex-col justify-center items-center"
+                        className="fixed inset-0 z-[60] bg-[#111111] flex flex-col justify-center items-center"
                     >
                         {/* Close Button */}
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute top-6 right-6 text-black font-medium text-lg px-2 py-1"
+                            className="absolute top-6 right-6 text-white font-medium text-lg px-2 py-1"
                         >
                             Close
                         </button>
@@ -91,7 +91,7 @@ export default function Navbar() {
                                     transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
                                 >
                                     <span
-                                        className="text-5xl font-bold text-black hover:text-black/50 transition-colors cursor-pointer tracking-tight"
+                                        className="text-5xl font-bold text-white hover:text-white/50 transition-colors cursor-pointer tracking-tight"
                                         onClick={() => {
                                             setIsOpen(false);
                                             if (item === 'Home') window.scrollTo({ top: 0, behavior: 'smooth' });
