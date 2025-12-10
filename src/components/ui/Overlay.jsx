@@ -126,10 +126,7 @@ export default function Overlay() {
 
 
 
-                    {/* 1. Story Marquee (White Card) */}
-                    <div className="pt-10 pb-20">
-                        <StorySection />
-                    </div>
+
 
                     {/* Curved Text Loop Separator */}
                     <div className="pb-20">
