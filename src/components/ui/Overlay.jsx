@@ -87,7 +87,7 @@ export default function Overlay() {
                     <Curve />
 
                     {/* Intro Text Matching Reference Position - Reduced Padding to lift text up */}
-                    <div className="w-full flex justify-center pt-20 pb-10 text-center px-4">
+                    <div className="w-full flex flex-col items-center justify-center pt-20 pb-10 text-center px-4">
                         <div className="max-w-[1000px] flex flex-col items-center gap-6">
                             <MaskedText className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight">
                                 I'm Yash – a Full Stack Developer crafting fast, scalable, and immersive digital experiences that merge creativity with engineering precision.
@@ -121,6 +121,18 @@ export default function Overlay() {
                                     </div>
                                 </button>
                             </div>
+                        </div>
+
+                        {/* Bottom Layout: Scroll Text, Line, Story Text */}
+                        <div className="w-full max-w-[1400px] px-10 mt-20 flex flex-col gap-10">
+                            <div className="flex justify-between items-end text-black font-medium">
+                                <div className="flex items-center gap-2">
+                                    <ArrowDown className="animate-bounce" size={20} />
+                                    <span>Scroll to Explore</span>
+                                </div>
+                                <span>My Short Story</span>
+                            </div>
+                            <div className="w-full h-[1px] bg-black/10"></div>
                         </div>
                     </div>
 
