@@ -164,28 +164,24 @@ export default function Overlay() {
                     <ScrollStoryCard />
 
 
+                    {/* Dark Background Section starting below Story Card */}
+                    <div className="w-full bg-[#111111] text-white pt-20 lg:pt-32 pb-20">
+                        {/* 2. Profile Photo & About Text (Restored Text Only) */}
+                        <ProfileAboutSection />
 
+                        {/* 3. Pinned Services (Sticky Cards) */}
+                        <ServicesPinned />
 
+                        {/* 4. Projects (Works Grid) */}
+                        <ProjectsSection />
 
+                        {/* 5. Experience (Timeline) */}
+                        <ExperienceSection />
 
-
-
-                    {/* 2. Profile Photo & About Text (Restored Text Only) */}
-                    <ProfileAboutSection />
-
-                    {/* 3. Pinned Services (Sticky Cards) */}
-                    <ServicesPinned />
-
-                    {/* 4. Projects (Works Grid) */}
-                    <ProjectsSection />
-
-                    {/* 5. Experience (Timeline) */}
-                    <ExperienceSection />
+                        <LargeFooter />
+                    </div>
 
                 </motion.div>
-
-                {/* Large Footer */}
-                <LargeFooter />
             </div >
         </div >
     );
