@@ -7,7 +7,7 @@ export default function FrameUI() {
     return (
         <div className="absolute inset-0 z-40 pointer-events-none text-white md:block hidden h-screen">
             <div className="z-50 flex-col flex lg:h-[80vh] h-[85vh] px-5 lg:px-9 pt-[8rem] lg:pt-[10rem] lg:-mt-3 xl:mt-10 py-5 lg:py-10 items-center left-0 top-0 absolute justify-end lg:justify-between pointer-events-auto">
-                <div className="item lg:block hidden lg:mb-14 h-[50vh] w-[1px] bg-gray-700 relative">
+                <div className="item lg:block hidden lg:mb-14 h-[50vh] w-[1px] bg-gray-300 relative">
                     <div className="absolute bottom-0 right-[50%] transform translate-x-[50%] h-[.3rem] bg-white rounded-[50%] w-[.3rem]"></div>
                     <div className="absolute top-0 right-[50%] transform translate-x-[50%] h-[.3rem] bg-white rounded-[50%] w-[.3rem]"></div>
                 </div>
