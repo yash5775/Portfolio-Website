@@ -1,8 +1,32 @@
 'use client';
 
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from './Navbar';
 import CurvedLoop from '@/components/bits/CurvedLoop';
+
+const ScrollStoryCard = () => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "start 15%"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
+    const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+    const borderRadius = useTransform(scrollYProgress, [0, 1], [40, 0]);
+
+    return (
+        <div ref={containerRef} className="w-full mt-20">
+            <motion.div
+                style={{ scale, y, borderRadius }}
+                className="w-full overflow-hidden"
+            >
+                <StorySection />
+            </motion.div>
+        </div>
+    );
+};
 
 const Curve = () => {
     const { scrollY } = useScroll();
@@ -122,19 +146,22 @@ export default function Overlay() {
                                 </button>
                             </div>
                         </div>
-
-                        {/* Bottom Layout: Scroll Text, Line, Story Text */}
-                        <div className="w-full max-w-[1400px] px-10 mt-20 flex flex-col gap-10">
-                            <div className="flex justify-between items-end text-black font-medium">
-                                <div className="flex items-center gap-2">
-                                    <ArrowDown className="animate-bounce" size={20} />
-                                    <span>Scroll to Explore</span>
-                                </div>
-                                <span>My Short Story</span>
-                            </div>
-                            <div className="w-full h-[1px] bg-black/10"></div>
-                        </div>
                     </div>
+
+                    {/* Bottom Layout: Scroll Text, Line, Story Text */}
+                    <div className="w-full max-w-[1400px] px-10 mt-20 flex flex-col gap-10">
+                        <div className="flex justify-between items-end text-black font-medium">
+                            <div className="flex items-center gap-2">
+                                <ArrowDown className="animate-bounce" size={20} />
+                                <span>Scroll to Explore</span>
+                            </div>
+                            <span>My Short Story</span>
+                        </div>
+                        <div className="w-full h-[1px] bg-black/10"></div>
+                    </div>
+
+                    {/* Expanding White Card Animation - OUTSIDE padding container for Full Width */}
+                    <ScrollStoryCard />
 
 
 
@@ -168,7 +195,7 @@ export default function Overlay() {
 
                 {/* Large Footer */}
                 <LargeFooter />
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
