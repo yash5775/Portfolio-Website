@@ -12,7 +12,7 @@ export default function Cursor() {
         y: useMotionValue(0)
     }
 
-    const smoothOptions = { damping: 15, stiffness: 500, mass: 0.1 }
+    const smoothOptions = { damping: 30, stiffness: 900, mass: 0.1 }
     const smoothMouse = {
         x: useSpring(mouse.x, smoothOptions),
         y: useSpring(mouse.y, smoothOptions)
