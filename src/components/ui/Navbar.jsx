@@ -29,7 +29,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed top-0 left-0 w-full z-50 p-4 md:p-8 pt-6 md:pt-12 flex justify-between items-center bg-transparent pointer-events-none"
+                className="absolute top-0 left-0 w-full z-50 p-4 md:p-8 pt-6 md:pt-12 flex justify-between items-center bg-transparent pointer-events-none"
             >
                 {/* Logo - Assuming Text if Image not available, wrapped to match user structure */}
                 <div className="pointer-events-auto">
