@@ -27,7 +27,7 @@ export default function StorySection() {
             </div>
 
             {/* Image Section - Matches reference placement */}
-            <div className="flex-1 w-full relative z-20 overflow-hidden">
+            <div className="flex-1 w-full relative z-20 overflow-hidden px-8 md:px-20">
                 <div className="w-full h-[60vh] md:h-[80vh] bg-[#1a1a1a] grayscale relative">
                     {/* Placeholder for the large image shown in reference */}
                     <div className="absolute inset-0 flex items-center justify-center text-white/5 text-[10rem] font-bold uppercase select-none overflow-hidden">
