@@ -32,9 +32,9 @@ const Counter = ({ value, label }) => {
     const isInView = useInView(ref, { once: true });
 
     return (
-        <div ref={ref} className="border-t border-white/20 pt-6">
-            <p className="text-xs sm:text-sm uppercase tracking-wider mb-4 sm:mb-6 text-white/60">{label}</p>
-            <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white">
+        <div ref={ref} className="border-t border-black/20 pt-6">
+            <p className="text-xs sm:text-sm uppercase tracking-wider mb-4 sm:mb-6 text-black/60">{label}</p>
+            <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-black">
                 {value}
             </h3>
         </div>
@@ -63,7 +63,7 @@ export default function ProfileAboutSection() {
                     <div>
                         <RevealedText
                             text="Driving measurable growth and engagement through thoughtful design and engineering."
-                            className="text-3xl lg:text-4xl font-medium text-white leading-[1.1]"
+                            className="text-3xl lg:text-4xl font-medium text-black leading-[1.1]"
                         />
                     </div>
 
@@ -71,7 +71,7 @@ export default function ProfileAboutSection() {
                     <div className="flex items-center">
                         <RevealedText
                             text="Every product I build starts with understanding user goals and translating them into intuitive, high-performance experiences. From concept to launch, I focus on meaningful results."
-                            className="text-lg md:text-xl text-white/60 leading-relaxed font-light"
+                            className="text-lg md:text-xl text-black/60 leading-relaxed font-light"
                         />
                     </div>
                 </div>

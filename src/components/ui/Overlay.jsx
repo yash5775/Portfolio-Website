@@ -47,7 +47,7 @@ export default function Overlay() {
                 </section>
 
                 {/* Dark Content Section with Curve Transition and Strict Order */}
-                <div className="relative w-full bg-[#e7e7e7] mt-[20vh]">
+                <div className="relative w-full bg-[#e7e7e7] mt-[20vh] z-10">
 
                     {/* Curve Transition */}
                     <div className="overflow-hidden absolute left-1/2 -translate-x-1/2 w-full lg:-top-[3rem] -top-[2rem] lg:h-[4rem] h-[2rem] z-40 mb-14">
