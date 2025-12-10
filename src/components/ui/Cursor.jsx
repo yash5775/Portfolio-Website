@@ -32,7 +32,7 @@ export default function Cursor() {
 
     const manageMouseOver = (e) => {
         // Tag interactive elements
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
             setIsHovered(true);
         } else {
             setIsHovered(false);
