@@ -39,7 +39,7 @@ import MaskedText from '@/components/bits/MaskedText';
 import ShinyButton from '@/components/bits/ShinyButton';
 import LargeFooter from './LargeFooter';
 import FrameUI from './FrameUI';
-import { ArrowRight } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export default function Overlay() {
     return (
@@ -85,8 +85,46 @@ export default function Overlay() {
                     {/* Dynamic Curve Transition */}
                     <Curve />
 
+                    {/* Intro Text Matching Reference Position - Reduced Padding to lift text up */}
+                    <div className="w-full flex justify-center pt-20 pb-10 text-center px-4">
+                        <div className="max-w-[1000px] flex flex-col items-center gap-6">
+                            <MaskedText className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight">
+                                I'm Yash – a Full Stack Developer crafting fast, scalable, and immersive digital experiences that merge creativity with engineering precision.
+                            </MaskedText>
+
+                            <MaskedText className="text-lg md:text-xl text-black/60 max-w-[800px] leading-relaxed">
+                                I specialize in developing SaaS platforms, AI-driven products, and interactive 3D web experiences using technologies like Next.js, Node.js, and Three.js.
+                            </MaskedText>
+
+                            <div className="flex justify-center mt-6">
+                                <button className="group flex items-center gap-0.5 hover:scale-100 transition-transform duration-300">
+                                    <div className="relative rounded-full bg-[#cced00] font-medium text-lg overflow-hidden transition-colors duration-300 group-hover:bg-black group-hover:text-white text-black">
+                                        <span className="block px-7 py-3.5 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
+                                            About Me
+                                        </span>
+                                        <span className="block absolute top-0 left-0 w-full px-7 py-3.5 text-center transition-transform duration-300 ease-[0.76, 0, 0.24, 1] translate-y-full group-hover:translate-y-0">
+                                            About Me
+                                        </span>
+                                    </div>
+                                    <div className="w-[52px] h-[52px] rounded-full bg-[#cced00] flex items-center justify-center text-black overflow-hidden relative transition-colors duration-300 group-hover:bg-black group-hover:text-white">
+                                        <ArrowUpRight
+                                            size={22}
+                                            strokeWidth={2.5}
+                                            className="absolute transition-all duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-[150%] group-hover:translate-x-[150%]"
+                                        />
+                                        <ArrowUpRight
+                                            size={22}
+                                            strokeWidth={2.5}
+                                            className="absolute transition-all duration-300 ease-[0.76, 0, 0.24, 1] translate-y-[150%] -translate-x-[150%] group-hover:translate-y-0 group-hover:translate-x-0"
+                                        />
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* 1. Story Marquee (White Card) */}
-                    <div className="pt-20 lg:pt-32 pb-20">
+                    <div className="pt-10 pb-20">
                         <StorySection />
                     </div>
 
