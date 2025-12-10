@@ -1,107 +1,87 @@
 'use client';
 
-import TiltedCard from '@/components/bits/TiltedCard';
-import SectionReveal from './SectionReveal';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const projects = [
     {
-        id: 1,
-        title: "Vanguard",
-        category: "Fintech Core",
-        description: "Real-time trading analytics dashboard with WebGL data visualization.",
-        gradient: "from-[#1a1a1a] to-[#2a2a2a]",
-        colSpan: "md:col-span-8",
+        title: "VexLogic AI",
+        category: "AI Assistant",
+        image: "/project1.jpg", // Placeholder
+        colSpan: "col-span-1"
     },
     {
-        id: 2,
-        title: "Lumina",
-        category: "AI Interface",
-        description: "Generative AI workspace with spatial audio and fluid motion.",
-        gradient: "from-[#202020] to-[#303030]",
-        colSpan: "md:col-span-4",
+        title: "VexLogic Business",
+        category: "Business Expansion",
+        image: "/project2.jpg",
+        colSpan: "col-span-1"
     },
     {
-        id: 3,
-        title: "Eon",
-        category: "E-Commerce",
-        description: "Luxury fashion platform featuring virtual try-on technology.",
-        gradient: "from-[#151515] to-[#252525]",
-        colSpan: "md:col-span-6",
+        title: "Comra",
+        category: "3D Visualisation",
+        image: "/project3.jpg",
+        colSpan: "col-span-1"
     },
     {
-        id: 4,
-        title: "Nexus",
-        category: "System Design",
-        description: "Comprehensive design system for enterprise-scale applications.",
-        gradient: "from-[#1c1c1c] to-[#2c2c2c]",
-        colSpan: "md:col-span-6",
+        title: "Superhost",
+        category: "Property Booking",
+        image: "/project4.jpg",
+        colSpan: "col-span-1"
     }
 ];
 
 export default function ProjectsSection() {
     return (
-        <SectionReveal className="w-full max-w-[1240px] mx-auto px-6 md:px-12 py-32">
-            <div className="mb-24">
-                <h2 className="text-4xl md:text-6xl font-bold text-black tracking-tight mb-6 leading-[1.1]">
-                    SELECTED WORK
+        <div className="w-full relative z-20 py-20 lg:py-32 px-4 md:px-12 bg-[#111111]">
+
+            {/* Title Section */}
+            <div className="max-w-[1400px] mx-auto mb-16 lg:mb-24">
+                <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] max-w-4xl">
+                    Discover my latest work <br />
+                    <span className="text-white/50">and creative solutions.</span>
                 </h2>
-                <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-black/20 to-transparent shadow-[0_0_15px_rgba(0,0,0,0.1)]" />
             </div>
 
-            <div
-                className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-24 w-full"
-                tabIndex={0}
-                role="list"
-                aria-label="Projects List"
-            >
+            {/* Grid */}
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 {projects.map((project, index) => (
                     <div
                         key={index}
-                        className={`col-span-1 ${index % 2 === 0 ? 'lg:col-span-7' : 'lg:col-span-5 lg:col-start-8 translate-y-24'}`}
-                        role="listitem"
+                        className="group relative w-full aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer"
                     >
-                        <div className="flex flex-col gap-6 group">
-                            <div className="flex items-baseline justify-between border-b border-black/10 pb-4">
-                                <span className="text-sm font-mono text-accent-violet tracking-widest">
-                                    {(index + 1).toString().padStart(2, '0')} / 04
-                                </span>
-                                <span className="text-black/40 text-xs tracking-wider uppercase">{project.category}</span>
+                        {/* Image Placeholder */}
+                        <div className="absolute inset-0 bg-gray-800 transition-transform duration-700 group-hover:scale-105">
+                            <div className="absolute inset-0 flex items-center justify-center text-white/5 text-6xl font-bold uppercase">
+                                {project.title}
                             </div>
+                        </div>
 
-                            <div
-                                role="button"
-                                tabIndex={0}
-                                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-violet rounded-3xl"
-                                aria-label={`View project: ${project.title}`}
-                            >
-                                <TiltedCard className="w-full aspect-[4/3] md:aspect-[16/10] mb-8 cursor-pointer">
-                                    <div className={`w-full h-full rounded-3xl bg-gradient-to-br from-gray-100 to-white border border-black/5 relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_50px_rgba(0,0,0,0.1)] group-hover:scale-[1.02] group-hover:-translate-y-2`}>
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
 
-                                        {/* Placeholder for project image - using gradient for now */}
-                                        <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-                                            <span className="text-black/5 font-bold text-6xl tracking-tighter uppercase">{project.title}</span>
-                                        </div>
-                                    </div>
-                                </TiltedCard>
-                            </div>
+                        {/* Text Content - Reveal on Hover */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                            <span className="text-4xl md:text-6xl font-bold text-lime-400 tracking-tighter">
+                                {project.title.split(' ')[0]}
+                            </span>
+                        </div>
 
-                            <div className="space-y-4">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-black group-hover:text-accent-violet transition-colors duration-300 leading-tight">
-                                        {project.title}
-                                    </h3>
-                                    <span className="text-xs font-medium text-black/60 border border-black/10 rounded-full px-3 py-1 uppercase tracking-wider">
-                                        {project.category}
-                                    </span>
-                                </div>
-                                <p className="text-[var(--color-text-body)] text-lg font-normal leading-[1.6] max-w-md">
-                                    {project.description}
-                                </p>
-                            </div>
+                        {/* Default Label (Always Visible) */}
+                        <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-10">
+                            <h3 className="text-2xl font-bold text-white mb-1 group-hover:opacity-0 transition-opacity duration-300 transform translate-y-0 group-hover:-translate-y-4">{project.title}</h3>
+                            <p className="text-white/60 text-lg group-hover:opacity-0 transition-opacity duration-300 transform translate-y-0 group-hover:-translate-y-4">{project.category}</p>
                         </div>
                     </div>
                 ))}
             </div>
-        </SectionReveal>
+
+            <div className="w-full flex justify-center mt-20">
+                <button className="px-10 py-4 border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all duration-500 uppercase tracking-widest text-sm font-bold flex items-center gap-4 group">
+                    View All Projects
+                    <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+            </div>
+
+        </div>
     );
 }

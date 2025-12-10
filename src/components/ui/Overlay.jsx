@@ -1,8 +1,11 @@
 'use client';
 
 import Navbar from './Navbar';
-import AboutSection from './AboutSection';
+import StorySection from './StorySection';
+import ProfileAboutSection from './ProfileAboutSection';
+import ServicesPinned from './ServicesPinned';
 import ProjectsSection from './ProjectsSection';
+import ExperienceSection from './ExperienceSection';
 import BlurText from '@/components/bits/BlurText';
 import MaskedText from '@/components/bits/MaskedText';
 import ShinyButton from '@/components/bits/ShinyButton';
@@ -16,57 +19,63 @@ export default function Overlay() {
             <FrameUI /> {/* Rendered FrameUI component */}
             <Navbar />
 
-            {/* Content Container - Flows naturally now */}
+            {/* Content Container */}
             <div className="relative w-full z-10">
 
-                {/* Hero Section Container - Centered */}
+                {/* Hero Section */}
                 <section className="h-screen w-full flex flex-col justify-center items-center text-center relative z-10 p-6 md:p-12">
-
-                    {/* Hero Text */}
                     <div className="flex flex-col items-center">
                         <div className="mb-6 relative">
                             <MaskedText className="text-xl md:text-2xl font-medium text-black/80 mb-4 tracking-wide">
                                 Hi! I'm Yash
                             </MaskedText>
-                            {/* Visual Note: In reference, "Full-stack Developer" + "UI & UX Designer" is the big heavy text */}
                         </div>
-
                         <div className="mb-8 flex flex-col items-center">
                             <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-bold text-black leading-[1.0] tracking-tight">
                                 Web Developer
                             </MaskedText>
                             <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-light text-black leading-[1.0] tracking-tight italic font-serif">
-                                WordPress Developer.
+                                UI & UX Designer.
                             </MaskedText>
                         </div>
-
-                        {/* Scroll Down Indicator */}
                         <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
                             <span className="text-sm font-medium text-black/40 lowercase tracking-widest animate-pulse">
                                 scroll down
                             </span>
                         </div>
                     </div>
-
                 </section>
 
-                {/* Content Overlay */}
-                <main className="w-full max-w-[1400px] mx-auto relative z-10 px-6 md:px-12">
+                {/* Dark Content Section with Curve Transition and Strict Order */}
+                <div className="relative w-full bg-[#111111] mt-[20vh]">
 
-                    {/* Spacing for next section */}
-                    <div className="h-[20vh]" />
-                </main>
+                    {/* Curve Transition */}
+                    <div className="overflow-hidden absolute left-1/2 -translate-x-1/2 w-full lg:-top-[3rem] -top-[2rem] lg:h-[4rem] h-[2rem] z-40 mb-14">
+                        <div className="absolute right-[-10%] rounded-[50%] h-[150%] w-[120%] bg-[#111111]"></div>
+                    </div>
 
+                    {/* 1. Story Marquee (White Card) */}
+                    <div className="pt-20 lg:pt-32 pb-20">
+                        <StorySection />
+                    </div>
 
-                {/* About Section */}
-                <AboutSection />
+                    {/* 2. Profile Photo & About Text */}
+                    <ProfileAboutSection />
 
-                {/* Projects Section */}
-                <ProjectsSection />
+                    {/* 3. Pinned Services (Sticky Cards) */}
+                    <ServicesPinned />
+
+                    {/* 4. Projects (Works Grid) */}
+                    <ProjectsSection />
+
+                    {/* 5. Experience (Timeline) */}
+                    <ExperienceSection />
+
+                </div>
 
                 {/* Large Footer */}
                 <LargeFooter />
             </div>
-        </div>
+        </div >
     );
 }
