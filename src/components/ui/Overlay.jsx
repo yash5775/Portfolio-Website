@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from './Navbar';
+import CurvedLoop from '@/components/bits/CurvedLoop';
 
 const Curve = () => {
     const { scrollY } = useScroll();
@@ -123,9 +124,23 @@ export default function Overlay() {
                         </div>
                     </div>
 
+
+
                     {/* 1. Story Marquee (White Card) */}
                     <div className="pt-10 pb-20">
                         <StorySection />
+                    </div>
+
+                    {/* Curved Text Loop Separator */}
+                    <div className="pb-20">
+                        <CurvedLoop
+                            marqueeText="FULL STACK DEVELOPER ✦ CREATIVE TECHNOLOGIST ✦"
+                            speed={3}
+                            curveAmount={200}
+                            direction="right"
+                            interactive={true}
+                            className="text-black fill-black"
+                        />
                     </div>
 
                     {/* 2. Profile Photo & About Text */}
