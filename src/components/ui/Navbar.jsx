@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 import { Menu as MenuIcon, X } from 'lucide-react';
 import Magnetic from '@/components/bits/Magnetic';
@@ -22,90 +22,119 @@ const RollingLink = ({ title, onClick }) => (
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious();
+        if (latest > 250 && latest > previous) {
+            setIsScrolled(true);
+        } else if (latest < 250) {
+            setIsScrolled(false);
+        }
+    });
 
     return (
         <>
-            <motion.header
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-0 left-0 w-full z-50 p-4 md:p-8 pt-6 md:pt-12 flex justify-between items-center bg-transparent pointer-events-none"
-            >
-                {/* Logo - Assuming Text if Image not available, wrapped to match user structure */}
-                <div className="pointer-events-auto">
-                    <a href="/" className="text-white text-xl font-medium tracking-tight font-sans relative z-50">
-                        YASH.
-                    </a>
-                </div>
+            return (
+            <>
+                {/* 1. Absolute Header: Sticks to Hero, scrolls away */}
+                <header className="absolute top-0 left-0 w-full z-[60] p-4 md:p-8 pt-6 md:pt-12 flex justify-between items-center bg-transparent pointer-events-none">
+                    {/* Logo */}
+                    <div className="pointer-events-auto mix-blend-difference">
+                        <a href="/" className="text-white text-xl font-medium tracking-tight font-sans relative z-50">
+                            YASH.
+                        </a>
+                    </div>
 
-                {/* Desktop Menu - User's Structure */}
-                <div className="hidden md:flex items-center gap-5 justify-end pointer-events-auto">
-                    <RollingLink title="Home" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-                    <RollingLink title="About" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} />
-                    <RollingLink title="Work" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })} />
-                    <RollingLink title="Contact" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} />
-                </div>
+                    {/* Desktop Menu Links - Visible only at top */}
+                    <div className="hidden md:flex items-center gap-5 justify-end pointer-events-auto mix-blend-difference">
+                        <RollingLink title="Home" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+                        <RollingLink title="About" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} />
+                        <RollingLink title="Work" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })} />
+                        <RollingLink title="Contact" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} />
+                    </div>
+                </header>
 
-                {/* Mobile Menu Trigger - "Menu" Text */}
-                <div className="md:hidden block pointer-events-auto">
+                {/* 2. Fixed Menu Button: Appears on scroll */}
+                <motion.div
+                    className="fixed top-0 right-0 p-4 md:p-8 pt-6 md:pt-12 z-[70] pointer-events-auto"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{
+                        scale: isScrolled || isOpen ? 1 : 0,
+                        opacity: isScrolled || isOpen ? 1 : 0
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-black z-50 relative p-1"
+                        className={`relative w-[60px] h-[60px] rounded-full bg-[#1c1d20] flex items-center justify-center mix-blend-difference text-white ${isOpen ? 'active' : ''}`}
                         aria-label="Toggle Menu"
                     >
-                        <svg viewBox="0 0 32 32" className="w-8 h-8 fill-none stroke-current stroke-[2] text-white">
+                        <svg viewBox="0 0 32 32" className="w-8 h-8 fill-none stroke-current stroke-[2]">
                             <path
+                                className="menu_lineTopBottom transition-[stroke-dasharray,stroke-dashoffset] duration-400"
                                 d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-                                className="transition-all duration-300"
                             />
-                            <path d="M7 16 27 16" className="transition-all duration-300" />
+                            <path
+                                className="menu_lineMiddle transition-opacity duration-400"
+                                d="M7 16 27 16"
+                            />
                         </svg>
+                        <style jsx global>{`
+                        .menu_lineTopBottom {
+                            stroke-dasharray: 12 55;
+                        }
+                        .menu_lineMiddle {
+                            transform-origin: center;
+                        }
+                        .active .menu_lineTopBottom {
+                            stroke-dasharray: 20 300;
+                            stroke-dashoffset: -32.42;
+                        }
+                        .active .menu_lineMiddle {
+                            opacity: 0;
+                        }
+                    `}</style>
                     </button>
-                </div>
-            </motion.header>
+                </motion.div>
 
-            {/* Mobile Full Screen Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-0 z-[60] bg-[#111111] flex flex-col justify-center items-center"
-                    >
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="absolute top-6 right-6 text-white font-medium text-lg px-2 py-1"
+                {/* Mobile Full Screen Menu */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="fixed inset-0 z-[60] bg-[#111111] flex flex-col justify-center items-center"
                         >
-                            Close
-                        </button>
-
-                        <ul className="flex flex-col gap-8 text-center">
-                            {['Home', 'About', 'Work', 'Contact'].map((item, i) => (
-                                <motion.li
-                                    key={item}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
-                                >
-                                    <span
-                                        className="text-5xl font-bold text-white hover:text-white/50 transition-colors cursor-pointer tracking-tight"
-                                        onClick={() => {
-                                            setIsOpen(false);
-                                            if (item === 'Home') window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            else document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
-                                        }}
+                            <ul className="flex flex-col gap-8 text-center">
+                                {['Home', 'About', 'Work', 'Contact'].map((item, i) => (
+                                    <motion.li
+                                        key={item}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
                                     >
-                                        {item}
-                                    </span>
-                                </motion.li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                                        <span
+                                            className="text-5xl font-bold text-white hover:text-white/50 transition-colors cursor-pointer tracking-tight"
+                                            onClick={() => {
+                                                setIsOpen(false);
+                                                if (item === 'Home') window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                else document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                                            }}
+                                        >
+                                            {item}
+                                        </span>
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </>
+            );
         </>
     );
 }
