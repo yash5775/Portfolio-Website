@@ -22,9 +22,9 @@ const TimeDisplay = () => {
 
 export default function LargeFooter() {
     return (
-        <footer className="relative w-full bg-[#ffffff] text-black pt-32 pb-12 px-6 md:px-12 overflow-hidden z-20">
+        <footer className="relative w-full bg-[#ffffff] text-black pt-10 pb-12 px-6 md:px-12 overflow-hidden z-20">
 
-            <div className="w-full max-w-[1240px] mx-auto border-t border-black/10 pt-20">
+            <div className="w-full max-w-[1240px] mx-auto border-t border-black/10 pt-10">
 
                 {/* 1. Big CTA Section */}
                 <div className="mb-24 flex flex-col items-start">
