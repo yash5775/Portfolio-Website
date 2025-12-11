@@ -68,7 +68,7 @@ export default function Navbar() {
                 >
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className={`relative w-[60px] h-[60px] rounded-full bg-[#1c1d20] flex items-center justify-center mix-blend-difference text-white ${isOpen ? 'active' : ''}`}
+                        className={`relative w-[60px] h-[60px] rounded-full bg-[#cced00] flex items-center justify-center text-black ${isOpen ? 'active' : ''}`}
                         aria-label="Toggle Menu"
                     >
                         <svg viewBox="0 0 32 32" className="w-8 h-8 fill-none stroke-current stroke-[2]">
