@@ -142,8 +142,8 @@ export default function ExperienceSection() {
                 {/* 2. The Straight Line (Timeline) - Centered */}
                 <div className="relative w-full flex">
 
-                    {/* Timeline Track */}
-                    <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-current opacity-10">
+                    {/* Timeline Track - Restored Color */}
+                    <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-[#cced00]/20">
                         {/* Filling Progress Line (Solid Color) */}
                         <motion.div
                             style={{ scaleY }}
