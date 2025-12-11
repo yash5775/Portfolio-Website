@@ -47,6 +47,21 @@ export default function ExperienceSection() {
     return (
         <section ref={containerRef} className="relative w-full min-h-screen bg-[#1a1a1a] pt-0 pb-20 overflow-hidden">
 
+            {/* 1. The Curvy Line (Background) - Full Screen Width */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+                <svg width="100%" height="100%" viewBox="0 0 1000 3000" preserveAspectRatio="none">
+                    <motion.path
+                        d="M -15 0 C 400 600, 700 1000, 200 1500 S 200 2500, 800 3000"
+                        stroke="#cced00"
+                        strokeWidth="12"
+                        strokeLinecap="round"
+                        fill="none"
+                        style={{ pathLength }}
+                        className="drop-shadow-[0_0_15px_rgba(204,237,0,0.4)] opacity-80"
+                    />
+                </svg>
+            </div>
+
             {/* Creative Split Header */}
             <div className="relative z-20 flex flex-col w-full max-w-7xl mx-auto items-center justify-center mb-16 pt-0">
 
@@ -112,21 +127,7 @@ export default function ExperienceSection() {
             </div>{/* Main Content Area */}
             <div className="relative max-w-7xl mx-auto min-h-[4000px] flex">
 
-                {/* 1. The Curvy Line (Background) - Remade */}
-                {/* A smooth arc in the bottom-left corner, avoiding text overlapping */}
-                <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-                    <svg width="100%" height="100%" viewBox="0 0 1000 2400" preserveAspectRatio="none">
-                        <motion.path
-                            d="M -200 1000 C 100 1000, 400 1200, 400 1800"
-                            stroke="#cced00"
-                            strokeWidth="30"
-                            strokeLinecap="round"
-                            fill="none"
-                            style={{ pathLength }}
-                            className="drop-shadow-[0_0_15px_rgba(204,237,0,0.4)] opacity-80"
-                        />
-                    </svg>
-                </div>
+
 
                 {/* 2. The Straight Line (Timeline) - Centered */}
                 <div className="relative w-full flex">
@@ -145,67 +146,75 @@ export default function ExperienceSection() {
                         />
                     </div>
 
-                    {/* Content List */}
                     <div className="w-full flex flex-col gap-[60vh] md:gap-[80vh] pl-[60px] md:pl-0 z-10 pt-20 pb-40">
-                        {experiences.map((exp, index) => (
-                            <div key={index} className="relative w-full md:w-1/2 md:ml-auto md:pl-24 group">
-                                {/* Timeline Dot (Target Focus Style) */}
-                                <motion.div
-                                    initial={{ scale: 0.5, opacity: 0.2 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
-                                    viewport={{ once: true, margin: "-50% 0px -50% 0px" }}
-                                    transition={{ duration: 0.4 }}
-                                    className="absolute left-[-41px] md:left-0 top-2 w-10 h-10 -translate-x-1/2 flex items-center justify-center z-20"
-                                >
-                                    {/* Outer Pulse Ring */}
-                                    <div className="absolute w-full h-full rounded-full border border-[#cced00] opacity-0 group-hover:opacity-100 animate-ping" />
-                                    {/* Main Dot */}
-                                    <div className="w-4 h-4 rounded-full bg-[#111] border-2 border-[#cced00] shadow-[0_0_10px_#cced00]" />
-                                </motion.div>
+                        {experiences.map((exp, index) => {
+                            const isEven = index % 2 === 0;
+                            return (
+                                <div key={index} className={`relative w-full md:w-1/2 ${isEven ? "md:ml-auto md:pl-24" : "md:mr-auto md:pr-24"} group`}>
 
-                                {/* Content Card */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: 50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.1 }}
-                                    viewport={{ once: true, margin: "-20%" }}
-                                    className="flex flex-col items-start text-left relative"
-                                >
-                                    {/* Ghost Index Number */}
-                                    <span className="absolute -top-20 -left-12 text-[10rem] font-bold text-white/[0.03] select-none leading-none pointer-events-none z-0">
-                                        0{index + 1}
-                                    </span>
+                                    {/* Timeline Dot (Target Focus Style) */}
+                                    <motion.div
+                                        initial={{ scale: 0.5, opacity: 0.2 }}
+                                        whileInView={{ scale: 1, opacity: 1 }}
+                                        viewport={{ once: true, margin: "-50% 0px -50% 0px" }}
+                                        transition={{ duration: 0.4 }}
+                                        className={`absolute top-2 w-10 h-10 flex items-center justify-center z-20 
+                                            left-[-41px] -translate-x-1/2 
+                                            ${isEven ? "md:left-0" : "md:left-auto md:right-0 md:translate-x-1/2"}
+                                        `}
+                                    >
+                                        {/* Outer Pulse Ring */}
+                                        <div className="absolute w-full h-full rounded-full border border-[#cced00] opacity-0 group-hover:opacity-100 animate-ping" />
+                                        {/* Main Dot */}
+                                        <div className="w-4 h-4 rounded-full bg-[#111] border-2 border-[#cced00] shadow-[0_0_10px_#cced00]" />
+                                    </motion.div>
 
-                                    <div className="relative z-10">
-                                        <h3 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight leading-none group-hover:text-[#cced00] transition-colors duration-300">
-                                            {exp.company}
-                                        </h3>
-
-                                        <div className="flex flex-wrap items-center gap-4 mb-6">
-                                            <span className="text-2xl md:text-3xl text-white/80 font-light">{exp.role}</span>
-                                            <span className="text-[#cced00] text-sm font-mono uppercase tracking-widest border border-[#cced00]/30 px-3 py-1 rounded-full bg-[#cced00]/10">{exp.type}</span>
-                                        </div>
-
-                                        <p className="text-xl text-white/50 max-w-xl leading-relaxed mb-8">
-                                            {exp.description}
-                                        </p>
-
-                                        {/* Tech Stack Pills */}
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            {exp.skills.map((skill, i) => (
-                                                <span key={i} className="text-sm font-medium text-white/40 bg-white/5 px-3 py-1 rounded-full border border-white/5 hover:border-white/20 hover:text-white transition-colors cursor-default">
-                                                    {skill}
-                                                </span>
-                                            ))}
-                                        </div>
-
-                                        <span className="text-sm font-bold tracking-[0.2em] text-[#cced00] uppercase opacity-60">
-                                            {exp.period}
+                                    {/* Content Card */}
+                                    <motion.div
+                                        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.6, delay: 0.1 }}
+                                        viewport={{ once: true, margin: "-20%" }}
+                                        className={`flex flex-col relative ${isEven ? "items-start text-left" : "items-start text-left md:items-end md:text-right"}`}
+                                    >
+                                        {/* Ghost Index Number */}
+                                        <span className={`absolute -top-20 text-[10rem] font-bold text-white/[0.03] select-none leading-none pointer-events-none z-0 
+                                            -left-12 ${isEven ? "" : "md:left-auto md:-right-12"}
+                                        `}>
+                                            0{index + 1}
                                         </span>
-                                    </div>
-                                </motion.div>
-                            </div>
-                        ))}
+
+                                        <div className="relative z-10">
+                                            <h3 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight leading-none group-hover:text-[#cced00] transition-colors duration-300">
+                                                {exp.company}
+                                            </h3>
+
+                                            <div className={`flex flex-wrap items-center gap-4 mb-6 ${isEven ? "" : "md:justify-end"}`}>
+                                                <span className="text-2xl md:text-3xl text-white/80 font-light">{exp.role}</span>
+                                                <span className="text-[#cced00] text-sm font-mono uppercase tracking-widest border border-[#cced00]/30 px-3 py-1 rounded-full bg-[#cced00]/10">{exp.type}</span>
+                                            </div>
+
+                                            <p className="text-xl text-white/50 max-w-xl leading-relaxed mb-8">
+                                                {exp.description}
+                                            </p>
+
+                                            {/* Tech Stack Pills */}
+                                            <div className={`flex flex-wrap gap-2 mb-6 ${isEven ? "" : "md:justify-end"}`}>
+                                                {exp.skills.map((skill, i) => (
+                                                    <span key={i} className="text-sm font-medium text-white/40 bg-white/5 px-3 py-1 rounded-full border border-white/5 hover:border-white/20 hover:text-white transition-colors cursor-default">
+                                                        {skill}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            <span className="text-sm font-bold tracking-[0.2em] text-[#cced00] uppercase opacity-60">
+                                                {exp.period}
+                                            </span>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            );
+                        })}
                     </div>
 
                 </div>
