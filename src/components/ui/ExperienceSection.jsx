@@ -44,8 +44,18 @@ export default function ExperienceSection() {
     const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const sparkTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+    // Color transition - Dark to Light - Starts late (between 2nd and 3rd item) and moves slowly
+    const backgroundColor = useTransform(scrollYProgress, [0.6, 0.9], ["#1a1a1a", "#ffffff"]);
+    const textColor = useTransform(scrollYProgress, [0.6, 0.9], ["#ffffff", "#000000"]);
+    // Invert accent color for visibility on white? Yellow (#cced00) is okay on white for sleek look, but maybe darken slightly?
+    // Let's keep yellow for now as requested.
+
     return (
-        <section ref={containerRef} className="relative w-full min-h-screen bg-[#1a1a1a] pt-0 pb-20 overflow-hidden">
+        <motion.section
+            ref={containerRef}
+            style={{ backgroundColor, color: textColor }}
+            className="relative w-full min-h-screen pt-0 pb-20 overflow-hidden"
+        >
 
             {/* 1. The Curvy Line (Background) - Full Screen Width */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
@@ -73,7 +83,7 @@ export default function ExperienceSection() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="flex-1 text-right"
                     >
-                        <h2 className="text-[8vw] md:text-[8rem] font-black text-white leading-none tracking-tighter">
+                        <h2 className="text-[8vw] md:text-[8rem] font-black leading-none tracking-tighter">
                             MY
                         </h2>
                     </motion.div>
@@ -91,7 +101,7 @@ export default function ExperienceSection() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="flex-1 text-left"
                     >
-                        <h2 className="text-[8vw] md:text-[8rem] font-black text-white/50 leading-none tracking-tighter">
+                        <h2 className="text-[8vw] md:text-[8rem] font-black opacity-50 leading-none tracking-tighter">
                             JOURNEY
                         </h2>
                     </motion.div>
@@ -118,7 +128,7 @@ export default function ExperienceSection() {
                         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                         className="flex-1 text-left"
                     >
-                        <h2 className="text-[8vw] md:text-[8rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-white/10 leading-none tracking-tighter">
+                        <h2 className="text-[8vw] md:text-[8rem] font-black opacity-80 leading-none tracking-tighter">
                             EXPERIENCE
                         </h2>
                     </motion.div>
@@ -133,7 +143,7 @@ export default function ExperienceSection() {
                 <div className="relative w-full flex">
 
                     {/* Timeline Track */}
-                    <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/20">
+                    <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-current opacity-10">
                         {/* Filling Progress Line (Solid Color) */}
                         <motion.div
                             style={{ scaleY }}
@@ -178,30 +188,30 @@ export default function ExperienceSection() {
                                         className={`flex flex-col relative ${isEven ? "items-start text-left" : "items-start text-left md:items-end md:text-right"}`}
                                     >
                                         {/* Ghost Index Number */}
-                                        <span className={`absolute -top-20 text-[10rem] font-bold text-white/[0.03] select-none leading-none pointer-events-none z-0 
+                                        <span className={`absolute -top-20 text-[10rem] font-bold opacity-[0.03] select-none leading-none pointer-events-none z-0 
                                             -left-12 ${isEven ? "" : "md:left-auto md:-right-12"}
                                         `}>
                                             0{index + 1}
                                         </span>
 
                                         <div className="relative z-10">
-                                            <h3 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight leading-none group-hover:text-[#cced00] transition-colors duration-300">
+                                            <h3 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight leading-none group-hover:text-[#cced00] transition-colors duration-300">
                                                 {exp.company}
                                             </h3>
 
                                             <div className={`flex flex-wrap items-center gap-4 mb-6 ${isEven ? "" : "md:justify-end"}`}>
-                                                <span className="text-2xl md:text-3xl text-white/80 font-light">{exp.role}</span>
+                                                <span className="text-2xl md:text-3xl opacity-80 font-light">{exp.role}</span>
                                                 <span className="text-[#cced00] text-sm font-mono uppercase tracking-widest border border-[#cced00]/30 px-3 py-1 rounded-full bg-[#cced00]/10">{exp.type}</span>
                                             </div>
 
-                                            <p className="text-xl text-white/50 max-w-xl leading-relaxed mb-8">
+                                            <p className="text-xl opacity-50 max-w-xl leading-relaxed mb-8">
                                                 {exp.description}
                                             </p>
 
-                                            {/* Tech Stack Pills */}
+                                            {/* Tech Stack Pills - Update border/bg to use current color */}
                                             <div className={`flex flex-wrap gap-2 mb-6 ${isEven ? "" : "md:justify-end"}`}>
                                                 {exp.skills.map((skill, i) => (
-                                                    <span key={i} className="text-sm font-medium text-white/40 bg-white/5 px-3 py-1 rounded-full border border-white/5 hover:border-white/20 hover:text-white transition-colors cursor-default">
+                                                    <span key={i} className="text-sm font-medium opacity-40 bg-current/5 px-3 py-1 rounded-full border border-current/5 hover:border-current/20 hover:opacity-100 transition-colors cursor-default">
                                                         {skill}
                                                     </span>
                                                 ))}
@@ -221,6 +231,6 @@ export default function ExperienceSection() {
 
             </div>
 
-        </section>
+        </motion.section>
     );
 }
