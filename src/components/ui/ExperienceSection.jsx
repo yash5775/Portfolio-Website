@@ -1,67 +1,126 @@
 'use client';
 
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
 const experiences = [
     {
         company: "Techivation",
         role: "Full Stack Developer",
-        type: "(Part-time)",
-        date: "May 2023 - Present",
-        description: "Building and maintaining Techivation’s full web and SaaS ecosystem powering audio plugin licensing and management."
+        type: "Part-time",
+        period: "MAY 2023 - PRESENT",
+        description: "Building and maintaining Techivation's full web and SaaS ecosystem powering audio plugin licensing and management.",
     },
     {
         company: "Freelance",
-        role: "Web Developer",
-        type: "(Full-time)",
-        date: "Jan 2021 - Present",
-        description: "Delivering high-quality web solutions for diverse clients, focusing on React and Next.js applications."
+        role: "Creative Developer",
+        type: "Remote",
+        period: "JAN 2022 - APR 2023",
+        description: "Delivering custom 3D websites and interactive experiences for diverse global clients.",
+    },
+    {
+        company: "Studio Alpha",
+        role: "UI/UX Designer",
+        type: "Full-time",
+        period: "JUN 2021 - DEC 2021",
+        description: "Designed user-centric interfaces for mobile apps and dashboard platforms.",
     }
 ];
 
 export default function ExperienceSection() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start center", "end center"]
+    });
+
+    // Curvy string animation - draws itself as you scroll
+    const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
+
     return (
-        <div className="relative w-full py-20 lg:py-40 bg-[#111111] overflow-hidden">
+        <section ref={containerRef} className="relative w-full min-h-screen bg-[#111111] py-32 overflow-hidden">
 
-            {/* Background decorative SVG line hint */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-                <svg width="100%" height="100%" viewBox="0 0 1000 2000" preserveAspectRatio="none">
-                    <path d="M500 0 Q 800 500 500 1000 T 500 2000" stroke="#d4f534" strokeWidth="2" fill="none" />
-                </svg>
+            {/* Header */}
+            <div className="relative z-20 text-center mb-24 md:mb-40">
+                <h2 className="text-5xl md:text-7xl font-bold text-white mb-2">
+                    Explore my journey
+                </h2>
+                <h2 className="text-5xl md:text-7xl font-bold text-white/30">
+                    and experience.
+                </h2>
             </div>
 
-            <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-                <div className="text-center mb-24">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                        Explore my journey <br />
-                        <span className="text-white/50">and experience.</span>
-                    </h2>
+            {/* Main Content Area */}
+            <div className="relative max-w-7xl mx-auto min-h-[1200px] flex">
+
+                {/* 1. The Curvy Line (Background) - Matched to Reference */}
+                {/* Thick yellow bold stroke, sweeping curve */}
+                <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+                    <svg width="100%" height="100%" viewBox="0 0 1000 1200" preserveAspectRatio="none">
+                        <motion.path
+                            d="M -100 200 C 200 200, 500 400, 800 600"
+                            stroke="#cced00"
+                            strokeWidth="25"
+                            strokeLinecap="round"
+                            fill="none"
+                            style={{ pathLength }}
+                            className="drop-shadow-[0_0_10px_rgba(204,237,0,0.3)]"
+                        />
+                    </svg>
                 </div>
 
-                <div className="relative flex flex-col items-center">
+                {/* 2. The Straight Line (Timeline) - Left Aligned */}
+                <div className="relative w-full flex">
 
-                    {/* Center Line */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2 hidden md:block" />
+                    {/* Timeline Track */}
+                    <div className="hidden md:block absolute left-[5%] md:left-[20%] top-0 bottom-0 w-[2px] bg-white/10">
+                        {/* Filling Progress Line */}
+                        <motion.div
+                            style={{ scaleY: scrollYProgress }}
+                            className="absolute top-0 left-0 w-full bg-[#cced00] origin-top h-full shadow-[0_0_10px_#cced00]"
+                        />
+                    </div>
 
-                    {experiences.map((exp, index) => (
-                        <div key={index} className="w-full flex flex-col md:flex-row justify-between items-center mb-32 md:mb-48 relative">
+                    {/* Content List */}
+                    <div className="w-full flex flex-col gap-32 md:gap-48 pl-[15%] md:pl-[30%] pr-4 md:pr-20 z-10">
+                        {experiences.map((exp, index) => (
+                            <div key={index} className="relative">
+                                {/* Timeline Dot (Aligned with top of card) */}
+                                <div className="hidden md:block absolute -left-[calc(10%_+_1px)] md:-left-[calc(14.5%_+_1px)] top-2 w-4 h-4 rounded-full border-2 border-[#cced00] bg-[#111] z-20 shadow-[0_0_10px_#cced00]" />
 
-                            {/* Dot on Line */}
-                            <div className="absolute left-1/2 top-0 w-4 h-4 rounded-full bg-black border border-white z-20 -translate-x-1/2 hidden md:block" />
+                                {/* Content Card */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.1 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    className="flex flex-col items-start text-left"
+                                >
+                                    <h3 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight leading-none">
+                                        {exp.company}
+                                    </h3>
 
-                            {/* Content */}
-                            <div className={`w-full md:w-[45%] ${index % 2 === 0 ? 'text-left md:text-right md:pr-20' : 'md:order-2 text-left md:pl-20'}`}>
-                                <h3 className="text-4xl md:text-6xl font-bold text-white mb-2">{exp.company}</h3>
-                                <h4 className="text-xl md:text-3xl font-light text-white/60 mb-4">{exp.role} <span className="text-lime-400 text-base ml-2">{exp.type}</span></h4>
-                                <p className="text-lg text-white/50 leading-relaxed mb-4">{exp.description}</p>
-                                <span className="inline-block px-4 py-2 rounded-full border border-white/10 text-xs uppercase tracking-wider text-white/40">{exp.date}</span>
+                                    <div className="flex flex-wrap items-center gap-4 mb-6">
+                                        <span className="text-2xl md:text-3xl text-white/60 font-light">{exp.role}</span>
+                                        <span className="text-[#cced00] text-sm font-mono uppercase tracking-widest border border-[#cced00]/30 px-3 py-1 rounded-full">{exp.type}</span>
+                                    </div>
+
+                                    <p className="text-xl text-white/40 max-w-xl leading-relaxed mb-6">
+                                        {exp.description}
+                                    </p>
+
+                                    <span className="text-sm font-bold tracking-[0.2em] text-white/20 uppercase">
+                                        {exp.period}
+                                    </span>
+                                </motion.div>
                             </div>
-
-                            {/* Empty spacer for grid balance */}
-                            <div className="hidden md:block w-[45%]" />
-                        </div>
-                    ))}
+                        ))}
+                    </div>
 
                 </div>
+
             </div>
-        </div>
+
+        </section>
     );
 }

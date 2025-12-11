@@ -173,10 +173,13 @@ export default function Overlay() {
                         <ServicesPinned />
 
                         {/* 4. Projects (Works Grid) */}
+                        {/* Projects Section - Sticky Horizontal Scroll */}
                         <ProjectsSection />
 
-                        {/* 5. Experience (Timeline) */}
+                        {/* Experience Section - Scroll Draw Animation */}
                         <ExperienceSection />
+
+
 
                         <LargeFooter />
                     </div>
