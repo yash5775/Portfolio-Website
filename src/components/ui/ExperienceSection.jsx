@@ -54,14 +54,14 @@ export default function ExperienceSection() {
         <motion.section
             ref={containerRef}
             style={{ backgroundColor, color: textColor }}
-            className="relative w-full min-h-screen pt-0 pb-0 overflow-hidden"
+            className="relative w-full min-h-screen pt-0 pb-0 overflow-visible"
         >
 
-            {/* 1. The Curvy Line (Background) - Full Screen Width */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+            {/* 1. The Curvy Line (Background) - Full Screen Width - Extended into Footer */}
+            <div className="absolute top-0 left-0 w-full h-[115%] pointer-events-none z-30">
                 <svg width="100%" height="100%" viewBox="0 0 1000 3000" preserveAspectRatio="none">
                     <motion.path
-                        d="M -15 0 C 400 600, 700 1000, 200 1500 S 200 2500, 800 3000"
+                        d="M -15 0 C 400 600, 700 1000, 200 1500 S 500 2400, 1000 3000"
                         stroke="#cced00"
                         strokeWidth="12"
                         strokeLinecap="round"
