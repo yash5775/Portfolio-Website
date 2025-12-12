@@ -122,7 +122,7 @@ export default function Overlay() {
                             </MaskedText>
 
                             <div className="flex justify-center mt-6">
-                                <button className="group flex items-center gap-0.5 hover:scale-100 transition-transform duration-300">
+                                <button className="group flex items-center gap-0.5 hover:scale-105 transition-transform duration-300">
                                     <div className="relative rounded-full bg-[#cced00] font-medium text-lg overflow-hidden transition-colors duration-300 group-hover:bg-black group-hover:text-white text-black">
                                         <span className="block px-7 py-3.5 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
                                             About Me

@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { useState } from 'react';
 import { Menu as MenuIcon, X } from 'lucide-react';
 import Magnetic from '@/components/bits/Magnetic';
+import RollingText from './RollingText';
 
 // Rolling Text Component mimicking the user's "Navtext" structure
 const RollingLink = ({ title, onClick }) => (
@@ -11,12 +12,9 @@ const RollingLink = ({ title, onClick }) => (
         onClick={onClick}
         className="relative overflow-hidden cursor-pointer group text-lg font-normal text-white"
     >
-        <span className="block transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
+        <RollingText>
             {title}
-        </span>
-        <span className="block absolute top-0 left-0 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] translate-y-full group-hover:translate-y-0 text-white">
-            {title}
-        </span>
+        </RollingText>
     </button>
 );
 
