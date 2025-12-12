@@ -36,7 +36,7 @@ export default function Navbar() {
 
     const navItems = [
         { title: 'Home', href: '/' },
-        { title: 'About', href: '/#about' }, // Assuming About section has id="about" on Home page
+        { title: 'About', href: '/about' },
         { title: 'Work', href: '/work' },
         { title: 'Contact', href: '/#contact' } // Assuming Contact section has id="contact" on Home page
     ];
