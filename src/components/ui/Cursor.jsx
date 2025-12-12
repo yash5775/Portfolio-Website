@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
+// ... imports
 export default function Cursor() {
     const [isHovered, setIsHovered] = useState(false);
+    const [isActive, setIsActive] = useState(false); // Track active state for click feedback if needed, or just keep simple
     const cursorSize = isHovered ? 60 : 20;
 
     const mouse = {
@@ -31,8 +33,10 @@ export default function Cursor() {
     }
 
     const manageMouseOver = (e) => {
-        // Tag interactive elements
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
+        const target = e.target;
+        const interactiveElement = target.closest('a') || target.closest('button');
+
+        if (target.tagName === 'A' || target.tagName === 'BUTTON' || interactiveElement) {
             setIsHovered(true);
         } else {
             setIsHovered(false);
@@ -41,7 +45,7 @@ export default function Cursor() {
 
     useEffect(() => {
         window.addEventListener("mousemove", manageMouseMove);
-        window.addEventListener("touchmove", manageTouchMove); // Add touch support
+        window.addEventListener("touchmove", manageTouchMove);
         window.addEventListener("mouseover", manageMouseOver);
         return () => {
             window.removeEventListener("mousemove", manageMouseMove);
@@ -62,7 +66,7 @@ export default function Cursor() {
                 width: cursorSize,
                 height: cursorSize
             }}
-            className="fixed rounded-full bg-white mix-blend-difference pointer-events-none z-[9999]" // Removed hidden md:block
+            className="fixed rounded-full backdrop-invert backdrop-grayscale pointer-events-none z-[9999]"
         />
     )
 }
