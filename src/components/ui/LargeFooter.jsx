@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import RollingText from './RollingText';
 
 const TimeDisplay = () => {
     const [time, setTime] = useState("");
@@ -40,8 +41,11 @@ export default function LargeFooter() {
                         LET'S WORK <br /> <span className="text-black/20">TOGETHER.</span>
                     </h2>
 
-                    <a href="mailto:hello@yash.dev" className="group inline-flex items-center gap-4 px-10 py-5 bg-black text-white rounded-full font-bold text-xl hover:bg-[#cced00] hover:text-black transition-all duration-300 hover:scale-105 hover:pr-12">
-                        Get in touch <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
+                    <a href="mailto:hello@yash.dev" className="group inline-flex items-center gap-4 px-10 py-5 bg-[#cced00] text-black rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 hover:pr-12 overflow-hidden">
+                        <RollingText>
+                            Get in touch
+                        </RollingText>
+                        <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
                     </a>
                 </div>
 
