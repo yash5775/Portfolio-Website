@@ -167,7 +167,9 @@ export default function Overlay() {
                     {/* Dark Background Section starting below Story Card */}
                     <div className="w-full bg-[#1a1a1a] text-white pt-20 lg:pt-32">
                         {/* 2. Profile Photo & About Text (Restored Text Only) */}
-                        <ProfileAboutSection />
+                        <section id="about">
+                            <ProfileAboutSection />
+                        </section>
 
                         {/* 3. Pinned Services (Sticky Cards) */}
                         <ServicesPinned />
@@ -180,8 +182,9 @@ export default function Overlay() {
                         <ExperienceSection />
 
 
-
-                        <LargeFooter />
+                        <section id="contact">
+                            <LargeFooter />
+                        </section>
                     </div>
 
                 </motion.div>
