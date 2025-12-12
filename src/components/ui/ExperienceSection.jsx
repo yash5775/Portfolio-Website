@@ -166,7 +166,7 @@ export default function ExperienceSection() {
                                     <motion.div
                                         initial={{ scale: 0.5, opacity: 0.2 }}
                                         whileInView={{ scale: 1, opacity: 1 }}
-                                        viewport={{ once: true, margin: "-50% 0px -50% 0px" }}
+                                        viewport={{ margin: "-50% 0px -50% 0px" }}
                                         transition={{ duration: 0.4 }}
                                         className={`absolute top-2 w-10 h-10 flex items-center justify-center z-20 
                                             left-[-41px] -translate-x-1/2 
@@ -184,7 +184,7 @@ export default function ExperienceSection() {
                                         initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         transition={{ duration: 0.6, delay: 0.1 }}
-                                        viewport={{ once: true, margin: "-20%" }}
+                                        viewport={{ margin: "-20%" }}
                                         className={`flex flex-col relative ${isEven ? "items-start text-left" : "items-start text-left md:items-end md:text-right"}`}
                                     >
                                         {/* Ghost Index Number */}
