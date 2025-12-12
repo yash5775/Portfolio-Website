@@ -10,90 +10,132 @@ const TimeDisplay = () => {
     useEffect(() => {
         const updateTime = () => {
             const now = new Date();
+            // Format: 5:29 PM
             const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-            setTime(`${timeString} GMT+5:30`);
+            setTime(timeString);
         };
         updateTime();
-        const interval = setInterval(updateTime, 60000);
+        const interval = setInterval(updateTime, 1000); // Update every second to be accurate
         return () => clearInterval(interval);
     }, []);
 
-    return <p className="text-black/40 text-sm font-mono mt-2">{time}</p>;
+    // Avoiding hydration mismatch by rendering a placeholder or null on server if needed, 
+    // but useEffect only runs on client, so initial render might differ. 
+    // Ideally we conditionally render or just accept the jump.
+    if (!time) return <span className="opacity-0">00:00 PM</span>;
+
+    return (
+        <div className="flex flex-col items-start">
+            <p className="text-[#1a1a1a] text-lg font-light tracking-tight">{time} GMT+5:30</p>
+        </div>
+    );
 };
 
 export default function LargeFooter() {
     return (
-        <footer className="relative w-full bg-[#ffffff] text-black pt-10 pb-12 px-6 md:px-12 overflow-hidden z-20">
+        <footer className="relative w-full bg-[#fcfcfc] text-black pt-20 pb-8 px-6 md:px-12 overflow-hidden z-20">
 
-            <div className="w-full max-w-[1240px] mx-auto border-t border-black/10 pt-10">
+            {/* Soft decorative gradient at top right */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100 via-transparent to-transparent opacity-60 pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
-                {/* 1. Big CTA Section */}
-                <div className="mb-24 flex flex-col items-start">
-                    <div className="flex items-center gap-4 mb-8">
-                        <div className="relative flex items-center justify-center">
-                            <div className="w-3 h-3 rounded-full bg-[#cced00] animate-ping absolute opacity-75" />
-                            <div className="w-3 h-3 rounded-full bg-[#cced00] relative" />
-                        </div>
-                        <span className="text-black/60 uppercase tracking-widest text-sm font-mono">Open to new opportunities</span>
+            <div className="w-full max-w-[1400px] mx-auto relative z-10">
+
+                {/* 1. CTA Section - Kept consistent but refined */}
+                <div className="mb-20 flex flex-col items-start">
+                    <div className="relative inline-flex items-center gap-2 mb-8 group cursor-default">
+                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span className="text-black/50 text-xs font-mono uppercase tracking-widest group-hover:text-black transition-colors">Available for work</span>
                     </div>
 
-                    <h2 className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-[0.85] mb-12">
-                        LET'S WORK <br /> <span className="text-black/20">TOGETHER.</span>
+                    <h2 className="text-[12vw] md:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-12 text-[#111]">
+                        LET'S WORK <br />
+                        <span className="text-[#999] opacity-40">TOGETHER.</span>
                     </h2>
 
-                    <a href="mailto:hello@yash.dev" className="group inline-flex items-center gap-4 px-10 py-5 bg-[#cced00] text-black rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 hover:pr-12 overflow-hidden">
-                        <RollingText>
-                            Get in touch
-                        </RollingText>
-                        <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
+                    <a href="mailto:hello@yash.dev" className="group relative inline-flex items-center justify-center px-10 py-5 bg-[#111] text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <span className="relative z-10 font-bold text-xl mr-2">Get in touch</span>
+                        <div className="relative z-10 overflow-hidden w-6 h-6 transition-transform group-hover:rotate-45 duration-300">
+                            <ArrowUpRight className="w-6 h-6" />
+                        </div>
                     </a>
                 </div>
 
-                {/* 2. Bottom Grid Info */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-black/10 pt-12">
+                {/* 2. Divider Line */}
+                <div className="w-full h-px bg-black/10 mb-16" />
 
-                    {/* Column 1: Navigation */}
-                    <div className="flex flex-col gap-4">
-                        <h4 className="text-black/40 uppercase text-xs tracking-wider mb-2 font-mono">Navigation</h4>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">Home</a>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">About</a>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">Work</a>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">Contact</a>
-                    </div>
+                {/* 3. Bottom Layout Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-12 gap-y-12 md:gap-y-0 w-full relative">
 
-                    {/* Column 2: Socials */}
-                    <div className="flex flex-col gap-4">
-                        <h4 className="text-black/40 uppercase text-xs tracking-wider mb-2 font-mono">Socials</h4>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">LinkedIn</a>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">Twitter</a>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">Instagram</a>
-                        <a href="#" className="hover:text-[#cced00] transition-colors text-lg font-light">Github</a>
-                    </div>
-
-                    {/* Column 3: Contact */}
-                    <div className="flex flex-col gap-4">
-                        <h4 className="text-black/40 uppercase text-xs tracking-wider mb-2 font-mono">Contact</h4>
-                        <p className="text-black/80 text-lg font-light">Mumbai, India</p>
-                        <a href="mailto:hello@yash.dev" className="hover:text-[#cced00] transition-colors text-lg font-light underline decoration-black/20 underline-offset-4 hover:decoration-[#cced00]">hello@yash.dev</a>
-                    </div>
-
-                    {/* Column 4: Local Time & Copyright */}
-                    <div className="flex flex-col justify-between h-full">
-                        <div>
-                            <h4 className="text-black/40 uppercase text-xs tracking-wider mb-2 font-mono">Local Time</h4>
-                            <TimeDisplay />
+                    {/* Navigation - Spans 3 cols */}
+                    <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
+                        <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Navigation</h4>
+                        <div className="flex flex-col gap-4">
+                            {['Home', 'About', 'Work', 'Contact'].map((link) => (
+                                <a key={link} href={`#${link.toLowerCase()}`} className="group w-fit">
+                                    <span className="text-lg font-light text-[#111] relative inline-block">
+                                        {link}
+                                        <span className="absolute bottom-0 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
+                                    </span>
+                                </a>
+                            ))}
                         </div>
-                        <div className="mt-12 md:mt-0 pt-8 md:pt-0">
-                            <span className="text-[10rem] leading-none font-black text-black/[0.03] absolute bottom-[-40px] right-[-20px] pointer-events-none select-none hidden md:block">
-                                YASH
-                            </span>
-                            <div className="text-black/20 text-xs font-mono uppercase tracking-widest relative z-10">
-                                © 2025 YASH
-                            </div>
+                    </div>
+
+                    {/* Socials - Spans 3 cols */}
+                    <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
+                        <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Socials</h4>
+                        <div className="flex flex-col gap-4">
+                            {['LinkedIn', 'Twitter', 'Instagram', 'Github'].map((link) => (
+                                <a key={link} href="#" className="group w-fit">
+                                    <span className="text-lg font-light text-[#111] relative inline-block">
+                                        {link}
+                                        <span className="absolute bottom-0 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
+                                    </span>
+                                </a>
+                            ))}
                         </div>
+                    </div>
+
+                    {/* Contact - Spans 3 cols */}
+                    <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
+                        <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Contact</h4>
+                        <div className="flex flex-col gap-4">
+                            <p className="text-lg font-light text-[#111]">Mumbai, India</p>
+                            <a href="mailto:hello@yash.dev" className="text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
+                                hello@yash.dev
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Local Time - Spans 3 cols */}
+                    <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
+                        <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Local Time</h4>
+                        <TimeDisplay />
                     </div>
 
                 </div>
+
+                {/* 4. Bottom Elements: Floating N & Watermark */}
+                <div className="relative w-full h-auto mt-12 flex items-end justify-between">
+
+
+                    {/* Watermark Section */}
+                    {/* Watermark Section */}
+                    <div className="absolute right-0 bottom-[-20px] md:bottom-[-40px] flex items-end z-0 pointer-events-none select-none overflow-hidden">
+                        <span className="text-[12px] text-black/30 font-mono tracking-widest mr-4 mb-6 md:mb-12 relative z-10">© 2025 YASH</span>
+                        <div className="relative">
+                            {/* Main Outline Text */}
+                            <h1 className="text-[150px] md:text-[220px] font-black tracking-tighter text-transparent [-webkit-text-stroke:2px_rgba(0,0,0,0.06)] leading-[0.8]">
+                                YASH
+                            </h1>
+                            {/* Subtle Glow/Blur Behind */}
+                            <h1 className="absolute top-0 left-0 text-[150px] md:text-[220px] font-black tracking-tighter text-black/[0.02] blur-sm leading-[0.8] scale-[1.02] origin-bottom-right">
+                                YASH
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </footer>
     );
