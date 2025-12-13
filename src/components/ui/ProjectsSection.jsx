@@ -8,27 +8,27 @@ import RollingText from './RollingText';
 
 const projects = [
     {
-        title: "VexLogic AI",
-        category: "AI Assistant",
+        title: "PVM BCA College",
+        category: "College Website",
         image: "/project1.jpg",
         id: "01"
     },
     {
-        title: "VexLogic Business",
-        category: "Business Expansion",
+        title: "Vrundavan Computer Class",
+        category: "Coaching Website",
         image: "/project2.jpg",
         id: "02"
     },
     {
-        title: "Comra",
-        category: "3D Visualisation",
+        title: "KARAM PET – Strap Industries",
+        category: "Business Website",
         image: "/project3.jpg",
         id: "03"
     },
     {
-        title: "Superhost",
-        category: "Property Booking",
-        image: "/project4.jpg",
+        title: "CLOUDY",
+        category: "Cloud Storage Web App",
+        image: "/project1.jpg",
         id: "04"
     }
 ];
