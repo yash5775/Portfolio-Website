@@ -88,7 +88,6 @@ export default function LargeFooter() {
                             {[
                                 { name: 'LinkedIn', href: 'https://www.linkedin.com/in/yashkumar-chaniyara-80252b253/' },
                                 { name: 'WhatsApp', href: 'https://wa.me/918200647176' },
-                                { name: 'Twitter', href: '#' },
                                 { name: 'Instagram', href: '#' },
                                 { name: 'Github', href: 'https://github.com/yash5775' }
                             ].map((link) => (
