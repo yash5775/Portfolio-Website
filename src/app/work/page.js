@@ -10,36 +10,54 @@ import RollingText from '@/components/ui/RollingText';
 
 const allProjects = [
     {
-        title: "VexLogic AI",
-        category: "AI Assistant",
+        title: "PVM BCA College",
+        category: "College Website",
         type: "Real-world Project",
         image: "/project1.jpg",
         id: "01",
-        description: "An advanced AI assistant designed to streamline workflow and enhance productivity with intuitive natural language processing."
+        description: "A full-stack college website built with React and Firebase, featuring a custom admin dashboard, dynamic content management, and a responsive UI.",
+        techStack: ["React", "Firebase", "Tailwind CSS", "Framer Motion"]
     },
     {
-        title: "VexLogic Business",
-        category: "Business Expansion",
+        title: "Vrundavan Computer Class",
+        category: "Coaching Website",
         type: "Real-world Project",
         image: "/project2.jpg",
         id: "02",
-        description: "A comprehensive platform helping businesses scale through data-driven insights and automated resource management."
+        description: "A dynamic coaching-class website built with React and Firebase, featuring a custom admin dashboard, structured course management, and a fully responsive custom UI.",
+        techStack: ["React", "Firebase", "Tailwind CSS", "Admin Panel"]
     },
     {
-        title: "Comra",
-        category: "3D Visualisation",
-        type: "Personal Project",
+        title: "KARAM PET – Strap Industries",
+        category: "Business Website",
+        type: "Real-world Project",
         image: "/project3.jpg",
         id: "03",
-        description: "Interactive 3D architectural visualization tool allowing users to explore spaces in real-time with photorealistic quality."
+        description: "Developed a responsive WordPress-based business website with a custom UI and SEO plugin integration for on-page optimization and improved search visibility.",
+        techStack: ["WordPress", "Custom UI", "SEO Plugins"]
+    },
+
+
+
+    {
+        title: "CLOUDY ",
+        category: "Cloud Storage Web App",
+        type: "ACADEMIC PROJECTS",
+        image: "/project1.jpg",
+        id: "06",
+        hideLink: true,
+        description: "Developed a secure file-storage system with authentication & encrypted data, deployed on EC2 with S3 and IAM configuration. Role: Team Leader.",
+        techStack: ["Node.js", "AWS (EC2, S3, IAM)", "HTML/CSS/JS"]
     },
     {
-        title: "Superhost",
-        category: "Property Booking",
+        title: "ONVIA",
+        category: "IoT System",
         type: "ACADEMIC PROJECTS",
-        image: "/project4.jpg",
-        id: "04",
-        description: "Seamless property management and booking system for hosts and travelers, featuring smart scheduling and automated check-ins."
+        image: "/project2.jpg",
+        id: "07",
+        hideLink: true,
+        description: "Built a real-time smart home automation system using Firebase for device control and monitoring. Integrated iOS app, backend, and ESP8266 microcontroller.",
+        techStack: ["Swift", "Firebase", "ESP8266", "C++"]
     }
 ];
 
@@ -118,22 +136,37 @@ export default function WorkPage() {
 
                                 {/* Info */}
                                 <div className={`w-full md:w-2/5 flex flex-col justify-center items-start ${index % 2 === 1 ? 'md:order-1 md:items-end md:text-right' : ''}`}>
-                                    <span className="text-[#cced00] font-mono text-xl mb-4 block">{project.id}</span>
+
                                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h2>
-                                    <p className="text-xl text-white/60 mb-8">{project.category}</p>
-                                    <p className="text-white/40 leading-relaxed mb-8 max-w-md">
+                                    <p className="text-xl text-white/60 mb-6">{project.category}</p>
+
+                                    <p className="text-white/40 leading-relaxed mb-6 max-w-md">
                                         {project.description}
                                     </p>
+
+                                    {/* Tech Stack */}
+                                    <div className="flex flex-wrap gap-2 mb-8 max-w-md">
+                                        {project.techStack && project.techStack.map((tech, i) => (
+                                            <span
+                                                key={i}
+                                                className="px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 hover:border-white/20 transition-colors duration-300"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+
                                     <div className="overflow-hidden">
-                                        <button className="group relative flex items-center gap-2 text-lg font-medium overflow-hidden">
-                                            <div className="relative overflow-hidden">
-                                                <span className="block transition-transform duration-500 group-hover:-translate-y-full">View Project</span>
-                                                <span className="absolute top-0 left-0 block transition-transform duration-500 translate-y-full group-hover:translate-y-0">View Project</span>
-                                            </div>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
-                                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                        </button>
+                                        {!project.hideLink && (
+                                            <button className="group relative flex items-center gap-2 text-lg font-medium overflow-hidden">
+                                                <div className="relative overflow-hidden w-full">
+                                                    <RollingText className="font-medium text-lg">View Project</RollingText>
+                                                </div>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>
