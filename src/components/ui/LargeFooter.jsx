@@ -96,7 +96,7 @@ export default function LargeFooter() {
                             {[
                                 { name: 'LinkedIn', href: 'https://www.linkedin.com/in/yashkumar-chaniyara-80252b253/' },
                                 { name: 'WhatsApp', href: 'https://wa.me/918200647176' },
-                                { name: 'Instagram', href: '#' },
+                                { name: 'Instagram', href: 'https://www.instagram.com/yash_chaniyara__?igsh=bjY4cmlxcmx4bjMz' },
                                 { name: 'Github', href: 'https://github.com/yash5775' }
                             ].map((link) => (
                                 <a key={link.name} href={link.href} target={link.href.startsWith('http') ? "_blank" : undefined} rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined} className="group w-fit">
@@ -113,7 +113,7 @@ export default function LargeFooter() {
                     <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
                         <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Contact</h4>
                         <div className="flex flex-col gap-4">
-                            <p className="text-lg font-light text-[#111]">Mumbai, India</p>
+                            <p className="text-lg font-light text-[#111]">Ahemdabad, india</p>
                             <a href="mailto:yash.chaniyara@icloud.com" className="w-fit text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
                                 yash.chaniyara@icloud.com
                             </a>
