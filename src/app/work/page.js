@@ -78,7 +78,7 @@ export default function WorkPage() {
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`relative px-6 py-2 rounded-full text-sm md:text-base font-medium transition-colors duration-300 ${activeTab === tab ? "text-[#1a1a1a]" : "text-white/60 hover:text-white"}`}
+                            className={`relative px-6 py-2 rounded-full text-sm md:text-base font-medium transition-colors duration-300 ${activeTab === tab ? "text-[#151515]" : "text-white/60 hover:text-white"}`}
                         >
                             {activeTab === tab && (
                                 <motion.div

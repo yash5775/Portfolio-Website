@@ -26,7 +26,7 @@ const TimeDisplay = () => {
 
     return (
         <div className="flex flex-col items-start">
-            <p className="text-[#1a1a1a] text-lg font-light tracking-tight">{time} GMT+5:30</p>
+            <p className="text-[#151515] text-lg font-light tracking-tight">{time} GMT+5:30</p>
         </div>
     );
 };

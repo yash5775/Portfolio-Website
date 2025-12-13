@@ -45,7 +45,7 @@ export default function ExperienceSection() {
     const sparkTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Color transition - Dark to Light - Starts late (between 2nd and 3rd item) and moves slowly
-    const backgroundColor = useTransform(scrollYProgress, [0.6, 0.9], ["#1a1a1a", "#ffffff"]);
+    const backgroundColor = useTransform(scrollYProgress, [0.6, 0.9], ["#151515", "#ffffff"]);
     const textColor = useTransform(scrollYProgress, [0.7, 0.8], ["#ffffff", "#000000"]);
     // Invert accent color for visibility on white? Yellow (#cced00) is okay on white for sleek look, but maybe darken slightly?
     // Let's keep yellow for now as requested.

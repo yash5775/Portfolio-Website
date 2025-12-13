@@ -60,7 +60,7 @@ export default function AboutPage() {
     const containerRef = useRef(null);
 
     return (
-        <main ref={containerRef} className="relative w-full min-h-screen bg-[#1a1a1a] text-white overflow-hidden">
+        <main ref={containerRef} className="relative w-full min-h-screen bg-[#151515] text-white overflow-hidden">
             <Navbar />
 
             {/* 1. Hero / Profile Section */}
@@ -125,8 +125,8 @@ export default function AboutPage() {
                     <div className="flex flex-col gap-8 overflow-hidden">
                         {/* Marquee Row 1: Frontend & Design */}
                         <div className="flex relative items-center">
-                            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#1a1a1a] to-transparent pointer-events-none" />
-                            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#1a1a1a] to-transparent pointer-events-none" />
+                            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#151515] to-transparent pointer-events-none" />
+                            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#151515] to-transparent pointer-events-none" />
 
                             <motion.div
                                 className="flex gap-4 pr-4"
@@ -150,8 +150,8 @@ export default function AboutPage() {
 
                         {/* Marquee Row 2: Backend & Tools */}
                         <div className="flex relative items-center">
-                            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#1a1a1a] to-transparent pointer-events-none" />
-                            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#1a1a1a] to-transparent pointer-events-none" />
+                            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#151515] to-transparent pointer-events-none" />
+                            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#151515] to-transparent pointer-events-none" />
 
                             <motion.div
                                 className="flex gap-4 pr-4"

@@ -43,7 +43,7 @@ export default function ProjectsSection() {
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-[#1a1a1a]">
+        <section ref={targetRef} className="relative h-[300vh] bg-[#151515]">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
 
                 {/* Background Text (Optional subtle layer) */}
