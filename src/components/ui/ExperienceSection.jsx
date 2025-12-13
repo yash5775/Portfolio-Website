@@ -17,7 +17,7 @@ const experiences = [
         role: "Web Developer Intern",
         type: "Internship",
         period: "OCT 2025",
-        description: "Completed an AICTE & ICAC approved internship. Worked on practical web development tasks in a professional environment, built responsive web pages based on real requirements, and gained hands-on exposure to development workflows.",
+        description: "Completed an AICTE & ICAC approved internship, working on real-world web development tasks and building responsive web pages in a professional environment.",
         skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
     },
     {
@@ -195,7 +195,7 @@ export default function ExperienceSection() {
                                         </span>
 
                                         <div className="relative z-10">
-                                            <h3 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight leading-none group-hover:text-[#cced00] transition-colors duration-300">
+                                            <h3 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-none group-hover:text-[#cced00] transition-colors duration-300">
                                                 {exp.company}
                                             </h3>
 
