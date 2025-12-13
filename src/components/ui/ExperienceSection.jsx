@@ -58,7 +58,7 @@ export default function ExperienceSection() {
         >
 
             {/* 1. The Curvy Line (Background) - Full Screen Width - Extended into Footer */}
-            <div className="absolute top-0 left-0 w-full h-[115%] pointer-events-none z-30">
+            <div className="absolute top-0 left-0 w-full h-[115%] pointer-events-none z-30 overflow-hidden">
                 <svg width="100%" height="100%" viewBox="0 0 1000 3000" preserveAspectRatio="none">
                     <motion.path
                         d="M -15 0 C 400 600, 700 1000, 200 1500 S 500 2400, 1000 3000"
