@@ -14,17 +14,17 @@ export default function FrameUI() {
 
                 <div className="flex item z-50 w-full flex-col gap-6 lg:gap-5 xl:gap-8 items-center">
                     <Magnetic>
-                        <a href="https://www.linkedin.com/in/aziz-khaldi-b28207261/" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
+                        <a href="#" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
                             <Linkedin size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="https://wa.me/213779577865" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
+                        <a href="#" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
                             <MessageCircle size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="https://github.com/AzizKhaldi01" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
+                        <a href="https://github.com/yash5775" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
                             <Github size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>

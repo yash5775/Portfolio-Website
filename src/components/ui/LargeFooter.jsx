@@ -85,10 +85,15 @@ export default function LargeFooter() {
                     <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
                         <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Socials</h4>
                         <div className="flex flex-col gap-4">
-                            {['LinkedIn', 'Twitter', 'Instagram', 'Github'].map((link) => (
-                                <a key={link} href="#" className="group w-fit">
+                            {[
+                                { name: 'LinkedIn', href: '#' },
+                                { name: 'Twitter', href: '#' },
+                                { name: 'Instagram', href: '#' },
+                                { name: 'Github', href: 'https://github.com/yash5775' }
+                            ].map((link) => (
+                                <a key={link.name} href={link.href} target={link.href.startsWith('http') ? "_blank" : undefined} rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined} className="group w-fit">
                                     <span className="text-lg font-light text-[#111] relative inline-block">
-                                        {link}
+                                        {link.name}
                                         <span className="absolute bottom-0 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
                                     </span>
                                 </a>
