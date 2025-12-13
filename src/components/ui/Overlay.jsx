@@ -110,7 +110,6 @@ export default function Overlay() {
 
                     {/* Dynamic Curve Transition */}
                     <Curve />
-                    <ConnectorLine />
 
                     {/* Intro Text Matching Reference Position - Reduced Padding to lift text up */}
                     <div className="w-full flex flex-col items-center justify-center pt-20 pb-10 text-center px-4">
