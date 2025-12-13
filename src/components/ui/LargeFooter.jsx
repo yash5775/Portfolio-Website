@@ -111,10 +111,10 @@ export default function LargeFooter() {
                         <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Contact</h4>
                         <div className="flex flex-col gap-4">
                             <p className="text-lg font-light text-[#111]">Mumbai, India</p>
-                            <a href="mailto:yash.chaniyara@icloud.com" className="text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
+                            <a href="mailto:yash.chaniyara@icloud.com" className="w-fit text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
                                 yash.chaniyara@icloud.com
                             </a>
-                            <a href="tel:+918200647176" className="text-lg font-light text-[#111] hover:text-black/70 transition-colors">
+                            <a href="tel:+918200647176" className="w-fit text-lg font-light text-[#111] hover:text-black/70 transition-colors">
                                 +91 82006 47176
                             </a>
                         </div>
