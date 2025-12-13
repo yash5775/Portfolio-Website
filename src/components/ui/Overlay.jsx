@@ -65,6 +65,7 @@ import MaskedText from '@/components/bits/MaskedText';
 import ShinyButton from '@/components/bits/ShinyButton';
 import LargeFooter from './LargeFooter';
 import FrameUI from './FrameUI';
+import Link from 'next/link';
 import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export default function Overlay() {
@@ -124,28 +125,30 @@ export default function Overlay() {
                             </MaskedText>
 
                             <div className="flex justify-center mt-6">
-                                <button className="group flex items-center gap-0.5 hover:scale-105 transition-transform duration-300">
-                                    <div className="relative rounded-full bg-[#cced00] font-medium text-lg overflow-hidden transition-colors duration-300 group-hover:bg-black group-hover:text-white text-black">
-                                        <span className="block px-7 py-3.5 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
-                                            About Me
-                                        </span>
-                                        <span className="block absolute top-0 left-0 w-full px-7 py-3.5 text-center transition-transform duration-300 ease-[0.76, 0, 0.24, 1] translate-y-full group-hover:translate-y-0">
-                                            About Me
-                                        </span>
-                                    </div>
-                                    <div className="w-[52px] h-[52px] rounded-full bg-[#cced00] flex items-center justify-center text-black overflow-hidden relative transition-colors duration-300 group-hover:bg-black group-hover:text-white">
-                                        <ArrowUpRight
-                                            size={22}
-                                            strokeWidth={2.5}
-                                            className="absolute transition-all duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-[150%] group-hover:translate-x-[150%]"
-                                        />
-                                        <ArrowUpRight
-                                            size={22}
-                                            strokeWidth={2.5}
-                                            className="absolute transition-all duration-300 ease-[0.76, 0, 0.24, 1] translate-y-[150%] -translate-x-[150%] group-hover:translate-y-0 group-hover:translate-x-0"
-                                        />
-                                    </div>
-                                </button>
+                                <Link href="/about">
+                                    <button className="group flex items-center gap-0.5 hover:scale-105 transition-transform duration-300">
+                                        <div className="relative rounded-full bg-[#cced00] font-medium text-lg overflow-hidden transition-colors duration-300 group-hover:bg-black group-hover:text-white text-black">
+                                            <span className="block px-7 py-3.5 transition-transform duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-full">
+                                                About Me
+                                            </span>
+                                            <span className="block absolute top-0 left-0 w-full px-7 py-3.5 text-center transition-transform duration-300 ease-[0.76, 0, 0.24, 1] translate-y-full group-hover:translate-y-0">
+                                                About Me
+                                            </span>
+                                        </div>
+                                        <div className="w-[52px] h-[52px] rounded-full bg-[#cced00] flex items-center justify-center text-black overflow-hidden relative transition-colors duration-300 group-hover:bg-black group-hover:text-white">
+                                            <ArrowUpRight
+                                                size={22}
+                                                strokeWidth={2.5}
+                                                className="absolute transition-all duration-300 ease-[0.76, 0, 0.24, 1] group-hover:-translate-y-[150%] group-hover:translate-x-[150%]"
+                                            />
+                                            <ArrowUpRight
+                                                size={22}
+                                                strokeWidth={2.5}
+                                                className="absolute transition-all duration-300 ease-[0.76, 0, 0.24, 1] translate-y-[150%] -translate-x-[150%] group-hover:translate-y-0 group-hover:translate-x-0"
+                                            />
+                                        </div>
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
