@@ -37,6 +37,8 @@ body {
   line-height: 1.6;
   cursor: none;
   /* Hide system cursor */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 /* Ensure cursor is hidden on all elements */
