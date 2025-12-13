@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function StorySection() {
     return (
-        <div className="w-full h-full relative overflow-hidden bg-[#1a1a1a] flex flex-col">
+        <div className="w-full h-full relative overflow-hidden bg-[#151515] flex flex-col">
             {/* Noise Texture Removed for consistent black color */}
 
             <div className="flex-none z-20 pt-2 pb-12 overflow-visible">
@@ -29,7 +29,7 @@ export default function StorySection() {
                         className="object-cover rounded-md"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-50"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-50"></div>
                 </div>
             </div>
         </div>
