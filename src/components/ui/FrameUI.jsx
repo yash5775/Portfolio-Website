@@ -14,7 +14,7 @@ export default function FrameUI() {
 
                 <div className="flex item z-50 w-full flex-col gap-6 lg:gap-5 xl:gap-8 items-center">
                     <Magnetic>
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
+                        <a href="https://www.linkedin.com/in/yashkumar-chaniyara-80252b253/" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
                             <Linkedin size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>

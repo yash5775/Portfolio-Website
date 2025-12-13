@@ -86,7 +86,7 @@ export default function LargeFooter() {
                         <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Socials</h4>
                         <div className="flex flex-col gap-4">
                             {[
-                                { name: 'LinkedIn', href: '#' },
+                                { name: 'LinkedIn', href: 'https://www.linkedin.com/in/yashkumar-chaniyara-80252b253/' },
                                 { name: 'Twitter', href: '#' },
                                 { name: 'Instagram', href: '#' },
                                 { name: 'Github', href: 'https://github.com/yash5775' }
