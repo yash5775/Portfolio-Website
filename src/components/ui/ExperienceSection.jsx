@@ -53,8 +53,8 @@ export default function ExperienceSection() {
     return (
         <motion.section
             ref={containerRef}
-            style={{ backgroundColor, color: textColor }}
-            className="relative w-full min-h-screen pt-0 pb-0 overflow-visible"
+            style={{ backgroundColor, color: textColor, overflowX: 'clip' }}
+            className="relative w-full min-h-screen pt-0 pb-0"
         >
 
             {/* 1. The Curvy Line (Background) - Full Screen Width - Extended into Footer */}
