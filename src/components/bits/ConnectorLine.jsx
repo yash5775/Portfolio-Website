@@ -18,7 +18,7 @@ export default function ConnectorLine() {
     const circleScale = useTransform(scrollYProgress, [0.95, 1], [0, 1]);
 
     return (
-        <div ref={containerRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-30 overflow-visible desktop-only-connector">
+        <div ref={containerRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-30 overflow-hidden desktop-only-connector">
             <svg
                 className="w-full h-[400vh] absolute top-[20vh]"
                 viewBox="0 0 100 1200"
