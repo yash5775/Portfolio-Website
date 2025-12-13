@@ -47,7 +47,7 @@ const Curve = () => {
     );
 
     return (
-        <div className="absolute top-[-100px] left-0 w-full h-[100px] overflow-hidden z-40 pointer-events-none">
+        <div className="absolute top-[-99px] left-0 w-full h-[100px] overflow-hidden z-40 pointer-events-none">
             {/* White colored SVG to match the light content section */}
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <motion.path d={path} fill="#e7e7e7" />
@@ -110,6 +110,7 @@ export default function Overlay() {
 
                     {/* Dynamic Curve Transition */}
                     <Curve />
+                    <ConnectorLine />
 
                     {/* Intro Text Matching Reference Position - Reduced Padding to lift text up */}
                     <div className="w-full flex flex-col items-center justify-center pt-20 pb-10 text-center px-4">
