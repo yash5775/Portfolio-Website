@@ -8,7 +8,7 @@ const experiences = [
         company: "Learning Phase",
         role: "Aspiring Developer",
         type: "Self-Paced",
-        period: "2021 - 2023",
+        period: "2022 - 2024",
         description: "Dedicated time spent mastering the fundamentals of web development. Built foundational skills in HTML, CSS, and JavaScript, and explored modern frameworks through building personal projects and solving algorithmic challenges.",
         skills: ["JavaScript", "HTML5", "CSS3", "React Basics", "Git"]
     },
@@ -24,7 +24,7 @@ const experiences = [
         company: "Real-World Projects",
         role: "Web Developer",
         type: "Freelance",
-        period: "2023 - 2025",
+        period: "2025 - PRESENT",
         description: "Developed and maintained production-ready websites for colleges and businesses. Delivered fully responsive solutions focused on usability, performance, and reliability for real users.",
         skills: ["Next.js", "React", "Tailwind CSS", "Database Design"]
     }
@@ -45,8 +45,8 @@ export default function ExperienceSection() {
     const sparkTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Color transition - Dark to Light - Starts late (between 2nd and 3rd item) and moves slowly
-    const backgroundColor = useTransform(scrollYProgress, [0.65, 0.7], ["#1a1a1a", "#ffffff"]);
-    const textColor = useTransform(scrollYProgress, [0.65, 0.7], ["#ffffff", "#000000"]);
+    const backgroundColor = useTransform(scrollYProgress, [0.6, 0.9], ["#1a1a1a", "#ffffff"]);
+    const textColor = useTransform(scrollYProgress, [0.7, 0.8], ["#ffffff", "#000000"]);
     // Invert accent color for visibility on white? Yellow (#cced00) is okay on white for sleek look, but maybe darken slightly?
     // Let's keep yellow for now as requested.
 
@@ -183,7 +183,7 @@ export default function ExperienceSection() {
                                     <motion.div
                                         initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.4, delay: 0.1 }}
+                                        transition={{ duration: 0.6, delay: 0.1 }}
                                         viewport={{ margin: "-20%" }}
                                         className={`flex flex-col relative ${isEven ? "items-start text-left" : "items-start text-left md:items-end md:text-right"}`}
                                     >
@@ -200,18 +200,18 @@ export default function ExperienceSection() {
                                             </h3>
 
                                             <div className={`flex flex-wrap items-center gap-4 mb-6 ${isEven ? "" : "md:justify-end"}`}>
-                                                <span className="text-2xl md:text-3xl font-light">{exp.role}</span>
+                                                <span className="text-2xl md:text-3xl opacity-80 font-light">{exp.role}</span>
                                                 <span className="text-[#cced00] text-sm font-mono uppercase tracking-widest border border-[#cced00]/30 px-3 py-1 rounded-full bg-[#cced00]/10">{exp.type}</span>
                                             </div>
 
-                                            <p className="text-xl max-w-xl leading-relaxed mb-8">
+                                            <p className="text-xl opacity-50 max-w-xl leading-relaxed mb-8">
                                                 {exp.description}
                                             </p>
 
                                             {/* Tech Stack Pills - Update border/bg to use current color */}
                                             <div className={`flex flex-wrap gap-2 mb-6 ${isEven ? "" : "md:justify-end"}`}>
                                                 {exp.skills.map((skill, i) => (
-                                                    <span key={i} className="text-sm font-medium bg-current/10 px-3 py-1 rounded-full border border-current/10 hover:border-current/30 transition-colors cursor-default">
+                                                    <span key={i} className="text-sm font-medium opacity-40 bg-current/5 px-3 py-1 rounded-full border border-current/5 hover:border-current/20 hover:opacity-100 transition-colors cursor-default">
                                                         {skill}
                                                     </span>
                                                 ))}

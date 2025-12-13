@@ -33,7 +33,7 @@ const TimeDisplay = () => {
 
 export default function LargeFooter() {
     return (
-        <footer className="relative w-full bg-[#fcfcfc] text-black pt-20 pb-8 px-6 md:px-12 overflow-hidden z-20">
+        <footer className="relative w-full bg-white text-black pt-20 pb-8 px-6 md:px-12 overflow-hidden z-20 border-t border-black/5">
 
             {/* Soft decorative gradient at top right */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100 via-transparent to-transparent opacity-60 pointer-events-none translate-x-1/3 -translate-y-1/3" />
@@ -43,7 +43,10 @@ export default function LargeFooter() {
                 {/* 1. CTA Section - Kept consistent but refined */}
                 <div className="mb-20 flex flex-col items-start">
                     <div className="relative inline-flex items-center gap-2 mb-8 group cursor-default">
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cced00] opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cced00]"></span>
+                        </span>
                         <span className="text-black/50 text-xs font-mono uppercase tracking-widest group-hover:text-black transition-colors">Available for work</span>
                     </div>
 
