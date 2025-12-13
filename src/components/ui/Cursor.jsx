@@ -6,19 +6,18 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 // ... imports
 export default function Cursor() {
     const [isHovered, setIsHovered] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
-    const cursorSize = isHovered ? 60 : 20;
+    const [isActive, setIsActive] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const checkVisible = () => {
-            setIsVisible(window.innerWidth >= 768);
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches);
         };
-        checkVisible();
-        window.addEventListener('resize', checkVisible);
-        return () => window.removeEventListener('resize', checkVisible);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
-
-
+    const cursorSize = isHovered ? 60 : 20;
 
     const mouse = {
         x: useMotionValue(0),
@@ -37,11 +36,7 @@ export default function Cursor() {
         mouse.y.set(clientY - cursorSize / 2);
     }
 
-    const manageTouchMove = (e) => {
-        const { clientX, clientY } = e.touches[0];
-        mouse.x.set(clientX - cursorSize / 2);
-        mouse.y.set(clientY - cursorSize / 2);
-    }
+
 
     const manageMouseOver = (e) => {
         const target = e.target;
@@ -55,17 +50,16 @@ export default function Cursor() {
     }
 
     useEffect(() => {
+        if (isMobile) return;
         window.addEventListener("mousemove", manageMouseMove);
-        window.addEventListener("touchmove", manageTouchMove);
         window.addEventListener("mouseover", manageMouseOver);
         return () => {
             window.removeEventListener("mousemove", manageMouseMove);
-            window.removeEventListener("touchmove", manageTouchMove);
             window.removeEventListener("mouseover", manageMouseOver);
         }
-    }, [isHovered]);
+    }, [isHovered, isMobile]);
 
-    if (!isVisible) return null;
+    if (isMobile) return null;
 
     return (
         <motion.div
