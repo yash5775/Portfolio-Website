@@ -162,7 +162,7 @@ export default function AboutPage() {
 
                     <div className="flex flex-wrap justify-center gap-4 md:gap-8">
                         {[
-                            "React", "Next.js", "TypeScript", "Node.js", "Three.js", "WebGL", "Tailwind CSS", "Framer Motion", "PostgreSQL", "GraphQL", "Figma", "Blender"
+                            "React.js", "Next.js", "N8N", "Firebase", "Supabase", "WordPress", "Shopify", "Prompt Engineering", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Tailwind CSS"
                         ].map((tech, i) => (
                             <motion.div
                                 key={tech}
