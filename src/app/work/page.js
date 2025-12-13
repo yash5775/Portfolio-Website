@@ -77,11 +77,9 @@ export default function WorkPage() {
             <div className="pt-32 pb-20 px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto">
                 {/* Header */}
                 <div className="mb-16 md:mb-24 flex flex-col items-start">
-                    <MaskedText className="text-6xl md:text-8xl lg:text-[7rem] font-bold leading-[0.9] tracking-tight mb-8">
-                        Selected
-                    </MaskedText>
+                    
                     <MaskedText className="text-6xl md:text-8xl lg:text-[7rem] font-bold leading-[0.9] tracking-tight text-[#cced00] italic font-serif">
-                        Works.
+                        Projects.
                     </MaskedText>
                     <div className="mt-10 max-w-2xl">
                         <p className="text-white/60 text-lg md:text-xl leading-relaxed">
