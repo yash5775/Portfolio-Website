@@ -23,7 +23,7 @@ export default function StorySection() {
             <div className="flex-1 w-full relative z-20 overflow-hidden px-8 md:px-20">
                 <div className="w-full h-[60vh] md:h-[80vh] relative grayscale hover:grayscale-0 transition-all duration-700">
                     <Image
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop"
+                        src="/images/profile-new.png"
                         alt="Profile"
                         fill
                         className="object-cover rounded-md"
