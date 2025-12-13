@@ -55,7 +55,7 @@ export default function ProfileAboutSection() {
                     {/* Left: Main Headline */}
                     <div>
                         <RevealedText
-                            text="Driving measurable growth and engagement through thoughtful design and engineering."
+                            text="Turning ideas into clean, scalable web experiences through design and engineering."
                             className="text-3xl lg:text-4xl font-medium text-white leading-[1.1]"
                         />
                     </div>
@@ -63,7 +63,7 @@ export default function ProfileAboutSection() {
                     {/* Right: Subtext */}
                     <div className="flex items-center">
                         <RevealedText
-                            text="Every product I build starts with understanding user goals and translating them into intuitive, high-performance experiences. From concept to launch, I focus on meaningful results."
+                            text="I focus on understanding real requirements and delivering responsive, well-structured web solutions from development to deployment."
                             className="text-lg md:text-xl text-white/60 leading-relaxed font-light"
                         />
                     </div>
