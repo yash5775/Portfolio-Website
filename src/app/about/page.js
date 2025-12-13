@@ -10,9 +10,15 @@ import { ArrowUpRight, Github, Linkedin, Mail, Phone, Download } from 'lucide-re
 
 // --- Components for this page ---
 
-const SectionHeader = ({ title, subtitle }) => (
+const SectionHeader = ({ title, subtitle, specialWords = [], specialClass = "" }) => (
     <div className="mb-16">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">{title}</h2>
+        <MaskedText
+            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            specialWords={specialWords}
+            specialClass={specialClass}
+        >
+            {title}
+        </MaskedText>
         {subtitle && <p className="text-white/60 text-lg max-w-2xl">{subtitle}</p>}
         <div className="w-full h-px bg-white/10 mt-8" />
     </div>
@@ -121,7 +127,12 @@ export default function AboutPage() {
             {/* 2. Skills Section */}
             <section className="py-20 px-6 md:px-20 bg-black">
                 <div className="max-w-[1400px] mx-auto">
-                    <SectionHeader title="Technical Arsenal" subtitle="Tools and technologies I use to bring ideas to life." />
+                    <SectionHeader
+                        title="Technical Arsenal"
+                        subtitle="Tools and technologies I use to bring ideas to life."
+                        specialWords={["Arsenal"]}
+                        specialClass="font-serif italic text-[#cced00]"
+                    />
 
                     <div className="flex flex-col gap-8 overflow-hidden">
                         {/* Marquee Row 1: Frontend & Design */}
