@@ -83,7 +83,7 @@ export default function ExperienceSection() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="flex-1 text-right"
                     >
-                        <h2 className="text-[8vw] md:text-[8rem] font-black leading-none tracking-tighter">
+                        <h2 className="text-[8vw] md:text-[8rem] font-black leading-none tracking-tighter font-serif italic">
                             MY
                         </h2>
                     </motion.div>
@@ -128,7 +128,7 @@ export default function ExperienceSection() {
                         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                         className="flex-1 text-left"
                     >
-                        <h2 className="text-[8vw] md:text-[8rem] font-black opacity-80 leading-none tracking-tighter">
+                        <h2 className="text-[8vw] md:text-[8rem] font-black opacity-80 leading-none tracking-tighter font-serif italic">
                             EXPERIENCE
                         </h2>
                     </motion.div>

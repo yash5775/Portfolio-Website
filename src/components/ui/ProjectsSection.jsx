@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import RollingText from './RollingText';
+import MaskedText from '../bits/MaskedText';
 
 const projects = [
     {
@@ -49,10 +50,13 @@ export default function ProjectsSection() {
 
                 {/* Background Text (Optional subtle layer) */}
                 <div className="absolute top-10 left-10 md:left-20 z-10">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                        Selected<br />
-                        <span className="text-[#cced00]">Works</span>
-                    </h2>
+                    <MaskedText
+                        className="text-4xl md:text-6xl font-bold text-white leading-tight"
+                        specialWords={["Works"]}
+                        specialClass="font-serif italic text-[#cced00]"
+                    >
+                        Selected Works
+                    </MaskedText>
                 </div>
 
                 <motion.div

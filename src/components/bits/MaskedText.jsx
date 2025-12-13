@@ -23,7 +23,7 @@ export default function MaskedText({ children, className = "", specialWords = []
     const words = text.split(" ");
 
     return (
-        <div ref={ref} className={`${className} flex flex-wrap justify-center overflow-hidden`}>
+        <div ref={ref} className={`${className} flex flex-wrap overflow-hidden`}>
             {words.map((word, index) => {
                 // Check if the current word matches any of the special words (case-sensitive or simple inclusion)
                 // Using includes to catch punctuation variants or simple exact match

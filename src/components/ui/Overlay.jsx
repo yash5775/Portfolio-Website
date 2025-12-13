@@ -81,15 +81,15 @@ export default function Overlay() {
                 <section className="h-screen w-full flex flex-col justify-center items-center text-center relative z-10 p-6 md:p-12">
                     <div className="flex flex-col items-center">
                         <div className="mb-6 relative">
-                            <MaskedText className="text-xl md:text-2xl font-medium text-white/80 mb-4 tracking-wide">
+                            <MaskedText className="text-xl md:text-2xl font-medium text-white/80 mb-4 tracking-wide justify-center">
                                 Hi! I'm Yash
                             </MaskedText>
                         </div>
                         <div className="mb-8 flex flex-col items-center">
-                            <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-bold text-white leading-[1.0] tracking-tight">
+                            <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-bold text-white leading-[1.0] tracking-tight justify-center">
                                 Web Developer
                             </MaskedText>
-                            <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-light text-white leading-[1.0] tracking-tight italic font-serif">
+                            <MaskedText className="text-6xl md:text-[5rem] lg:text-[7rem] font-light text-white leading-[1.0] tracking-tight italic font-serif justify-center">
                                 UI & UX Designer.
                             </MaskedText>
                         </div>
@@ -117,7 +117,7 @@ export default function Overlay() {
                     <div className="w-full flex flex-col items-center justify-center pt-20 pb-10 text-center px-4">
                         <div className="max-w-[1000px] flex flex-col items-center gap-6">
                             <MaskedText
-                                className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight"
+                                className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight justify-center"
                                 specialWords={["Web", "Developer", "visually", "refined"]}
                                 specialClass="font-serif italic"
                             >
@@ -125,7 +125,7 @@ export default function Overlay() {
                             </MaskedText>
 
                             <MaskedText
-                                className="text-lg md:text-xl text-black/60 max-w-[800px] leading-relaxed"
+                                className="text-lg md:text-xl text-black/60 max-w-[800px] leading-relaxed justify-center"
                                 specialWords={["high-performance", "responsive", "UI", "clean", "architecture", "real-world"]}
                                 specialClass="font-serif italic text-black"
                             >

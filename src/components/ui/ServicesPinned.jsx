@@ -1,11 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import MaskedText from '../bits/MaskedText';
 
 const services = [
     {
         id: "01",
         title: "Web Application Development",
+        specialWords: ["Application"],
         description: "Building modern, responsive web applications using React and Next.js, with backend integrations and clean, maintainable code.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12">
@@ -17,6 +19,7 @@ const services = [
     {
         id: "02",
         title: "Frontend Development & UI Design",
+        specialWords: ["Frontend", "UI"],
         description: "Creating clean, responsive user interfaces with a focus on usability, performance, and modern design practices.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12">
@@ -28,6 +31,7 @@ const services = [
     {
         id: "03",
         title: "Real-World Web Projects",
+        specialWords: ["Real-World"],
         description: "Working on production-ready web projects for colleges and businesses, from UI development to deployment.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12">
@@ -39,6 +43,7 @@ const services = [
     {
         id: "04",
         title: "Modern Development Workflow",
+        specialWords: ["Modern"],
         description: "Using AI tools alongside traditional development practices to speed up coding, debugging, and problem-solving in real-world projects.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12">
@@ -71,9 +76,13 @@ export default function ServicesPinned() {
                             <div className="flex flex-col gap-6 md:gap-8 flex-1">
 
                                 <div>
-                                    <h3 className="text-3xl md:text-5xl font-medium text-white mb-6 leading-tight group-hover:text-[#cced00] transition-colors duration-300">
+                                    <MaskedText
+                                        className="text-3xl md:text-5xl font-medium text-white mb-6 leading-tight group-hover:text-[#cced00] transition-colors duration-300 justify-start"
+                                        specialWords={service.specialWords}
+                                        specialClass="font-serif italic text-white"
+                                    >
                                         {service.title}
-                                    </h3>
+                                    </MaskedText>
                                     <p className="text-lg text-white/50 leading-relaxed max-w-xl group-hover:text-white/80 transition-colors duration-300">
                                         {service.description}
                                     </p>
