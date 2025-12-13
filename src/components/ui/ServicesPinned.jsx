@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 const services = [
     {
         id: "01",
-        title: "Full Stack Development",
-        description: "Building scalable and high-performance web applications using Next.js, React, Node.js, and TypeScript.",
+        title: "Web Application Development",
+        description: "Building modern, responsive web applications using React and Next.js, with backend integrations and clean, maintainable code.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-8 h-8 md:w-16 md:h-16 text-black">
                 <path d="M12 18L22 12L32 18L42 12V38L32 44L22 38L12 44V18Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -16,8 +16,8 @@ const services = [
     },
     {
         id: "02",
-        title: "UI/UX Design & Frontend",
-        description: "Designing modern, responsive interfaces with Figma, Tailwind CSS, and Framer Motion.",
+        title: "Frontend Development & UI Design",
+        description: "Creating clean, responsive user interfaces with a focus on usability, performance, and modern design practices.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-8 h-8 md:w-16 md:h-16 text-black">
                 <rect x="10" y="10" width="44" height="44" rx="6" stroke="currentColor" strokeWidth="2.5" />
@@ -27,8 +27,8 @@ const services = [
     },
     {
         id: "03",
-        title: "SaaS Platform Development",
-        description: "Developing end-to-end SaaS solutions with subscription systems, Stripe billing, and multi-tenant management.",
+        title: "Real-World Web Projects",
+        description: "Working on production-ready web projects for colleges and businesses, from UI development to deployment.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-8 h-8 md:w-16 md:h-16 text-black">
                 <path d="M32 10L46 18V38L32 46L18 38V18L32 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -38,8 +38,8 @@ const services = [
     },
     {
         id: "04",
-        title: "API & System Architecture",
-        description: "Designing maintainable APIs with PostgreSQL, Prisma, and MongoDB. Focusing on performance and security.",
+        title: "Modern Development Workflow",
+        description: "Using AI tools alongside traditional development practices to speed up coding, debugging, and problem-solving in real-world projects.",
         icon: (
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-8 h-8 md:w-16 md:h-16 text-black">
                 <circle cx="18" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
