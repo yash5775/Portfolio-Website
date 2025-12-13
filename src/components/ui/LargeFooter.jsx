@@ -109,6 +109,9 @@ export default function LargeFooter() {
                             <a href="mailto:yash.chaniyara@icloud.com" className="text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
                                 yash.chaniyara@icloud.com
                             </a>
+                            <a href="tel:+918200647176" className="text-lg font-light text-[#111] hover:text-black/70 transition-colors">
+                                +91 82006 47176
+                            </a>
                         </div>
                     </div>
 
