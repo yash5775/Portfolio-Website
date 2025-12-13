@@ -35,8 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  overflow-x: hidden;
-  /* Prevent horizontal scroll */
 }
 
 @media (hover: hover) and (pointer: fine) {

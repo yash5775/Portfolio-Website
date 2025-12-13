@@ -8,7 +8,7 @@ export default function StorySection() {
         <div className="w-full h-full relative overflow-hidden bg-[#151515] flex flex-col">
             {/* Noise Texture Removed for consistent black color */}
 
-            <div className="flex-none z-20 pt-2 pb-12 overflow-visible">
+            <div className="flex-none z-20 pt-2 pb-12 overflow-hidden w-full">
                 <CurvedLoop
                     marqueeText="DEVELOPER ✦ CREATIVE TECHNOLOGIST ✦"
                     speed={3}
