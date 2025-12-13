@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <SmoothScroll>
-          {/* <Preloader /> - Disabled by user request */}
+          <Preloader />
           <Cursor />
           <GrainOverlay />
           {children}
