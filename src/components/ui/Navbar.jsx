@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import RollingText from './RollingText';
@@ -22,6 +22,7 @@ const RollingLink = ({ title, href, onClick }) => (
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const { scrollY } = useScroll();
     const pathname = usePathname();
 
@@ -33,6 +34,17 @@ export default function Navbar() {
             setIsScrolled(false);
         }
     });
+
+    // Handle Mobile Detection
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const navItems = [
         { title: 'Home', href: '/' },
@@ -64,13 +76,13 @@ export default function Navbar() {
                 </div>
             </header>
 
-            {/* 2. Fixed Menu Button: Appears on scroll */}
+            {/* 2. Fixed Menu Button: Appears on scroll OR on mobile always */}
             <motion.div
                 className="fixed top-0 right-0 p-4 md:p-8 pt-6 md:pt-12 z-[70] pointer-events-auto"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{
-                    scale: isScrolled || isOpen ? 1 : 0,
-                    opacity: isScrolled || isOpen ? 1 : 0
+                    scale: isMobile || isScrolled || isOpen ? 1 : 0,
+                    opacity: isMobile || isScrolled || isOpen ? 1 : 0
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
             >
