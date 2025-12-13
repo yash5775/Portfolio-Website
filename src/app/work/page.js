@@ -53,7 +53,7 @@ export default function WorkPage() {
         : allProjects.filter(project => project.type === activeTab);
 
     return (
-        <main className="relative w-full min-h-screen bg-[#1a1a1a] text-white">
+        <main className="relative w-full min-h-screen bg-[#151515] text-white">
             <Navbar />
 
             <div className="pt-32 pb-20 px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto">
