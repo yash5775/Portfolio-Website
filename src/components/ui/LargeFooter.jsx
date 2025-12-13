@@ -70,10 +70,15 @@ export default function LargeFooter() {
                     <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
                         <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Navigation</h4>
                         <div className="flex flex-col gap-4">
-                            {['Home', 'About', 'Work', 'Contact'].map((link) => (
-                                <a key={link} href={`#${link.toLowerCase()}`} className="group w-fit">
+                            {[
+                                { name: 'Home', href: '/' },
+                                { name: 'About', href: '/about' },
+                                { name: 'Work', href: '/work' },
+                                { name: 'Contact', href: '/#contact' }
+                            ].map((link) => (
+                                <a key={link.name} href={link.href} className="group w-fit">
                                     <span className="text-lg font-light text-[#111] relative inline-block">
-                                        {link}
+                                        {link.name}
                                         <span className="absolute bottom-0 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
                                     </span>
                                 </a>
