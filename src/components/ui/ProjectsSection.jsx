@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import RollingText from './RollingText';
 
@@ -85,11 +86,13 @@ export default function ProjectsSection() {
                         <div className="text-center">
 
                             <h3 className="text-4xl md:text-6xl font-bold text-white mb-6">See All<br />Projects</h3>
-                            <button className="group px-8 py-4 bg-[#cced00] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform overflow-hidden">
-                                <RollingText>
-                                    View Archive
-                                </RollingText>
-                            </button>
+                            <Link href="/work">
+                                <button className="group px-8 py-4 bg-[#cced00] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform overflow-hidden">
+                                    <RollingText>
+                                        View Archive
+                                    </RollingText>
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
