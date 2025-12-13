@@ -116,11 +116,11 @@ export default function Overlay() {
                     <div className="w-full flex flex-col items-center justify-center pt-20 pb-10 text-center px-4">
                         <div className="max-w-[1000px] flex flex-col items-center gap-6">
                             <MaskedText className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight">
-                                I'm Yash – a Full Stack Developer crafting fast, scalable, and immersive digital experiences that merge creativity with engineering precision.
+                                I’m Yash — a Web Developer focused on building fast, scalable, and visually refined digital products.
                             </MaskedText>
 
                             <MaskedText className="text-lg md:text-xl text-black/60 max-w-[800px] leading-relaxed">
-                                I specialize in developing SaaS platforms, AI-driven products, and interactive 3D web experiences using technologies like Next.js, Node.js, and Three.js.
+                                I specialize in building high-performance web applications with responsive UI, clean architecture, and real-world usability using React, Next.js, and modern backend services.
                             </MaskedText>
 
                             <div className="flex justify-center mt-6">
