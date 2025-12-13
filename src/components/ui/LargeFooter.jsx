@@ -52,7 +52,7 @@ export default function LargeFooter() {
                         <span className="text-[#999] opacity-40">TOGETHER.</span>
                     </h2>
 
-                    <a href="mailto:hello@yash.dev" className="group relative inline-flex items-center justify-center px-10 py-5 bg-[#111] text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <a href="mailto:yash.chaniyara@icloud.com" className="group relative inline-flex items-center justify-center px-10 py-5 bg-[#111] text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
                         <span className="relative z-10 font-bold text-xl mr-2">Get in touch</span>
                         <div className="relative z-10 overflow-hidden w-6 h-6 transition-transform group-hover:rotate-45 duration-300">
                             <ArrowUpRight className="w-6 h-6" />
@@ -106,8 +106,8 @@ export default function LargeFooter() {
                         <h4 className="text-[#999] text-xs uppercase tracking-widest font-mono">Contact</h4>
                         <div className="flex flex-col gap-4">
                             <p className="text-lg font-light text-[#111]">Mumbai, India</p>
-                            <a href="mailto:hello@yash.dev" className="text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
-                                hello@yash.dev
+                            <a href="mailto:yash.chaniyara@icloud.com" className="text-lg font-light text-[#111] underline decoration-gray-300 underline-offset-4 hover:decoration-black transition-all">
+                                yash.chaniyara@icloud.com
                             </a>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ export default function ContactSection() {
                     Currently available for select freelance projects and open to collaborative opportunities.
                 </p>
 
-                <ShinyButton className="!px-12 !py-5 !text-lg !rounded-2xl" onClick={() => window.location.href = 'mailto:hello@yash.design'}>
+                <ShinyButton className="!px-12 !py-5 !text-lg !rounded-2xl" onClick={() => window.location.href = 'mailto:yash.chaniyara@icloud.com'}>
                     Say Hello
                 </ShinyButton>
 
