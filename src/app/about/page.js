@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import Image from 'next/image';
 import Navbar from '@/components/ui/Navbar';
 import LargeFooter from '@/components/ui/LargeFooter';
 import MaskedText from '@/components/bits/MaskedText';
@@ -105,14 +106,14 @@ export default function AboutPage() {
 
                     {/* Right: Decorative / Abstract Visual */}
                     <div className="relative h-[400px] lg:h-[600px] w-full rounded-3xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center group">
-                        <div className="absolute inset-0 bg-[#cced00]/5 blur-3xl rounded-full scale-50 group-hover:scale-75 transition-transform duration-700" />
-                        <div className="relative z-10 text-center p-8">
-                            <h3 className="text-3xl font-bold mb-4">Professional Summary</h3>
-                            <p className="text-white/60 leading-relaxed text-lg">
-                                Skilled with HTML, CSS, JavaScript, React, Next, WordPress, and Shopify customizations.
-                                Committed to leadership, problem solving, and seamless team collaboration.
-                            </p>
-                        </div>
+                        <Image
+                            src="/images/profile-new.png"
+                            alt="Yashkumar Chaniyara"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-20"></div>
                     </div>
                 </div>
             </section>
