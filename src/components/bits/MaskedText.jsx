@@ -3,7 +3,7 @@
 import { useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 
-export default function MaskedText({ children, className = "" }) {
+export default function MaskedText({ children, className = "", specialWords = [], specialClass = "" }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, margin: "-10%" });
 
@@ -24,19 +24,25 @@ export default function MaskedText({ children, className = "" }) {
 
     return (
         <div ref={ref} className={`${className} flex flex-wrap justify-center overflow-hidden`}>
-            {words.map((word, index) => (
-                <div key={index} className="overflow-hidden relative inline-flex mr-[0.2em] pb-[0.1em] -mb-[0.1em]">
-                    <motion.span
-                        custom={index}
-                        variants={animation}
-                        initial="initial"
-                        animate={isInView ? "enter" : ""}
-                        className="inline-block"
-                    >
-                        {word}
-                    </motion.span>
-                </div>
-            ))}
+            {words.map((word, index) => {
+                // Check if the current word matches any of the special words (case-sensitive or simple inclusion)
+                // Using includes to catch punctuation variants or simple exact match
+                const isSpecial = specialWords.some(special => word.includes(special));
+
+                return (
+                    <div key={index} className="overflow-hidden relative inline-flex mr-[0.2em] pb-[0.1em] -mb-[0.1em]">
+                        <motion.span
+                            custom={index}
+                            variants={animation}
+                            initial="initial"
+                            animate={isInView ? "enter" : ""}
+                            className={`inline-block ${isSpecial ? specialClass : ""}`}
+                        >
+                            {word}
+                        </motion.span>
+                    </div>
+                );
+            })}
         </div>
     )
 }

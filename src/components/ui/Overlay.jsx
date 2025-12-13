@@ -116,11 +116,19 @@ export default function Overlay() {
                     {/* Intro Text Matching Reference Position - Reduced Padding to lift text up */}
                     <div className="w-full flex flex-col items-center justify-center pt-20 pb-10 text-center px-4">
                         <div className="max-w-[1000px] flex flex-col items-center gap-6">
-                            <MaskedText className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight">
+                            <MaskedText
+                                className="text-3xl md:text-5xl lg:text-6xl font-medium text-black leading-[1.1] tracking-tight"
+                                specialWords={["Web", "Developer", "visually", "refined"]}
+                                specialClass="font-serif italic"
+                            >
                                 I’m Yash — a Web Developer focused on building fast, scalable, and visually refined digital products.
                             </MaskedText>
 
-                            <MaskedText className="text-lg md:text-xl text-black/60 max-w-[800px] leading-relaxed">
+                            <MaskedText
+                                className="text-lg md:text-xl text-black/60 max-w-[800px] leading-relaxed"
+                                specialWords={["high-performance", "responsive", "UI", "clean", "architecture", "real-world"]}
+                                specialClass="font-serif italic text-black"
+                            >
                                 I specialize in building high-performance web applications with responsive UI, clean architecture, and real-world usability using React, Next.js, and modern backend services.
                             </MaskedText>
 

@@ -4,25 +4,28 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 
-const RevealedText = ({ text, className }) => {
+const RevealedText = ({ text, className, specialWords = [], specialClass = "" }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
     const words = text.split(" ");
 
     return (
         <p ref={ref} className={className}>
-            {words.map((word, i) => (
-                <span key={i} className="inline-block overflow-hidden mr-[0.25em] align-top">
-                    <motion.span
-                        className="inline-block origin-bottom"
-                        initial={{ y: "100%", rotateX: -15, opacity: 0 }}
-                        animate={isInView ? { y: "0%", rotateX: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: i * 0.02 }}
-                    >
-                        {word}
-                    </motion.span>
-                </span>
-            ))}
+            {words.map((word, i) => {
+                const isSpecial = specialWords.some(special => word.includes(special));
+                return (
+                    <span key={i} className="inline-block overflow-hidden mr-[0.25em] align-top">
+                        <motion.span
+                            className={`inline-block origin-bottom ${isSpecial ? specialClass : ""}`}
+                            initial={{ y: "100%", rotateX: -15, opacity: 0 }}
+                            animate={isInView ? { y: "0%", rotateX: 0, opacity: 1 } : {}}
+                            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: i * 0.02 }}
+                        >
+                            {word}
+                        </motion.span>
+                    </span>
+                );
+            })}
         </p>
     );
 };
@@ -57,6 +60,8 @@ export default function ProfileAboutSection() {
                         <RevealedText
                             text="Turning ideas into clean, scalable web experiences through design and engineering."
                             className="text-3xl lg:text-4xl font-medium text-white leading-[1.1]"
+                            specialWords={["ideas", "experiences", "design", "engineering"]}
+                            specialClass="font-serif italic text-[#cced00]"
                         />
                     </div>
 
@@ -65,6 +70,8 @@ export default function ProfileAboutSection() {
                         <RevealedText
                             text="I focus on understanding real requirements and delivering responsive, well-structured web solutions from development to deployment."
                             className="text-lg md:text-xl text-white/60 leading-relaxed font-light"
+                            specialWords={["real", "requirements", "responsive", "solutions"]}
+                            specialClass="font-serif italic text-white"
                         />
                     </div>
                 </div>
