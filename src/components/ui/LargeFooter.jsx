@@ -51,8 +51,8 @@ export default function LargeFooter() {
                     </div>
 
                     <h2 className="text-[12vw] md:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-12 text-[#111]">
-                        LET'S WORK <br />
-                        <span className="text-[#999] opacity-40">TOGETHER.</span>
+                        LET'S <span className="font-serif italic font-light">WORK</span> <br />
+                        <span className="text-[#999] opacity-40"><span className="font-serif italic font-light">TOGETHER</span>.</span>
                     </h2>
 
                     <a href="mailto:yash.chaniyara@icloud.com" className="group relative inline-flex items-center justify-center px-10 py-5 bg-[#111] text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">

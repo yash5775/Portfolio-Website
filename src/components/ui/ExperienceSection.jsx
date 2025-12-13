@@ -10,7 +10,8 @@ const experiences = [
         type: "Self-Paced",
         period: "2022 - 2024",
         description: "Dedicated time spent mastering the fundamentals of web development. Built foundational skills in HTML, CSS, and JavaScript, and explored modern frameworks through building personal projects and solving algorithmic challenges.",
-        skills: ["JavaScript", "HTML5", "CSS3", "React Basics", "Git"]
+        skills: ["JavaScript", "HTML5", "CSS3", "React Basics", "Git"],
+        highlights: ["mastering", "fundamentals", "modern frameworks", "algorithmic"]
     },
     {
         company: "Codec Technologies",
@@ -18,7 +19,8 @@ const experiences = [
         type: "Internship",
         period: "OCT 2025",
         description: "Completed an AICTE & ICAC approved internship, working on real-world web development tasks and building responsive web pages in a professional environment.",
-        skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
+        skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+        highlights: ["real-world", "professional environment"]
     },
     {
         company: "Real-World Projects",
@@ -26,7 +28,8 @@ const experiences = [
         type: "Freelance",
         period: "2025 - PRESENT",
         description: "Developed and maintained production-ready websites for colleges and businesses. Delivered fully responsive solutions focused on usability, performance, and reliability for real users.",
-        skills: ["Next.js", "React", "Tailwind CSS", "Database Design"]
+        skills: ["Next.js", "React", "Tailwind CSS", "Database Design"],
+        highlights: ["production-ready", "fully responsive", "reliability"]
     }
 ];
 
@@ -205,7 +208,28 @@ export default function ExperienceSection() {
                                             </div>
 
                                             <p className="text-xl opacity-50 max-w-xl leading-relaxed mb-8">
-                                                {exp.description}
+                                                {(() => {
+                                                    let content = [exp.description];
+                                                    if (exp.highlights) {
+                                                        exp.highlights.forEach(highlight => {
+                                                            const newContent = [];
+                                                            content.forEach(part => {
+                                                                if (typeof part === 'string') {
+                                                                    const parts = part.split(new RegExp(`(${highlight})`, 'gi'));
+                                                                    newContent.push(...parts.map(p =>
+                                                                        p.toLowerCase() === highlight.toLowerCase()
+                                                                            ? <span key={Math.random()} className="font-serif italic text-white opacity-100">{p}</span>
+                                                                            : p
+                                                                    ));
+                                                                } else {
+                                                                    newContent.push(part);
+                                                                }
+                                                            });
+                                                            content = newContent;
+                                                        });
+                                                    }
+                                                    return content;
+                                                })()}
                                             </p>
 
                                             {/* Tech Stack Pills - Update border/bg to use current color */}
