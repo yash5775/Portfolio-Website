@@ -36,7 +36,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
-  max-width: 100vw;
 }
 
 @media (hover: hover) and (pointer: fine) {
