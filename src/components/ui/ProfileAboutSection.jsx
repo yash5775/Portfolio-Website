@@ -71,8 +71,8 @@ export default function ProfileAboutSection() {
 
                 {/* Counters */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-16">
-                    <Counter label="YEARS OF EXPERIENCE" value="4+" />
-                    <Counter label="PROJECTS COMPLETED" value="30+" />
+                    <Counter label="YEARS OF EXPERIENCE" value="2+" />
+                    <Counter label="PROJECTS COMPLETED" value="8+" />
                 </div>
             </div>
         </div>
