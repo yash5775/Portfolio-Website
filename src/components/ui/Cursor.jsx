@@ -6,8 +6,19 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 // ... imports
 export default function Cursor() {
     const [isHovered, setIsHovered] = useState(false);
-    const [isActive, setIsActive] = useState(false); // Track active state for click feedback if needed, or just keep simple
+    const [isVisible, setIsVisible] = useState(false);
     const cursorSize = isHovered ? 60 : 20;
+
+    useEffect(() => {
+        const checkVisible = () => {
+            setIsVisible(window.innerWidth >= 768);
+        };
+        checkVisible();
+        window.addEventListener('resize', checkVisible);
+        return () => window.removeEventListener('resize', checkVisible);
+    }, []);
+
+
 
     const mouse = {
         x: useMotionValue(0),
@@ -53,6 +64,8 @@ export default function Cursor() {
             window.removeEventListener("mouseover", manageMouseOver);
         }
     }, [isHovered]);
+
+    if (!isVisible) return null;
 
     return (
         <motion.div

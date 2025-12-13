@@ -35,16 +35,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  cursor: none;
-  /* Hide system cursor */
+  line-height: 1.6;
   overflow-x: hidden;
   /* Prevent horizontal scroll */
 }
 
-/* Ensure cursor is hidden on all elements */
-* {
-  cursor: none !important;
+@media (min-width: 768px) {
+  body {
+    cursor: none;
+    /* Hide system cursor */
+  }
+
+  /* Ensure cursor is hidden on all elements */
+  * {
+    cursor: none !important;
+  }
 }
+
+
 
 /* Custom Gradients */
 .bg-accent-gradient {
