@@ -19,7 +19,7 @@ export default function FrameUI() {
                         </a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="#" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
+                        <a href="https://wa.me/918200647176" target="_blank" rel="noopener noreferrer" className="duration-100 hover:opacity-70 text-white/80 lg:text-2xl text-xl transition-colors">
                             <MessageCircle size={22} strokeWidth={1.5} />
                         </a>
                     </Magnetic>
