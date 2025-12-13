@@ -2,7 +2,7 @@
 
 export default function HeroVideo() {
     return (
-        <div className="fixed inset-0 w-full h-screen z-0 flex items-center justify-center overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 w-full max-w-[100vw] h-screen z-0 flex items-center justify-center overflow-hidden pointer-events-none">
             <video
                 autoPlay
                 loop
