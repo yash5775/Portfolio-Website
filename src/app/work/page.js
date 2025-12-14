@@ -15,6 +15,7 @@ const allProjects = [
         type: "Real-world Project",
         image: "/project1.jpg",
         id: "01",
+        link: "https://pvm-bca-collage-lovat.vercel.app/",
         description: "A full-stack college website built with React and Firebase, featuring a custom admin dashboard, dynamic content management, and a responsive UI.",
         techStack: ["React", "Firebase", "Tailwind CSS", "Framer Motion"]
     },
@@ -77,7 +78,7 @@ export default function WorkPage() {
             <div className="pt-32 pb-20 px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto">
                 {/* Header */}
                 <div className="mb-16 md:mb-24 flex flex-col items-start">
-                    
+
                     <MaskedText className="text-6xl md:text-8xl lg:text-[7rem] font-bold leading-[0.9] tracking-tight text-[#cced00] italic font-serif">
                         Projects.
                     </MaskedText>
@@ -109,7 +110,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Projects List with AnimatePresence */}
-                <motion.div layout className="flex flex-col gap-20 md:gap-32">
+                <motion.div layout className="grid grid-cols-2 gap-4 md:gap-12">
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project, index) => (
                             <motion.div
@@ -119,10 +120,10 @@ export default function WorkPage() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.5, ease: "easeOut" }}
-                                className="group flex flex-col md:flex-row gap-8 md:gap-20 items-center"
+                                className="group flex flex-col gap-3 md:gap-6"
                             >
-                                {/* Image - Alternating Order based on index in filtered list */}
-                                <div className={`w-full md:w-3/5 aspect-[16/10] relative overflow-hidden rounded-3xl bg-neutral-900 border border-white/10 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                                {/* Image */}
+                                <div className="w-full aspect-[16/10] relative overflow-hidden rounded-2xl md:rounded-3xl bg-neutral-900 border border-white/10">
                                     <Image
                                         src={project.image}
                                         alt={project.title}
@@ -133,37 +134,53 @@ export default function WorkPage() {
                                 </div>
 
                                 {/* Info */}
-                                <div className={`w-full md:w-2/5 flex flex-col justify-center items-start ${index % 2 === 1 ? 'md:order-1 md:items-end md:text-right' : ''}`}>
+                                <div className="w-full flex flex-col items-start">
 
-                                    <h2 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h2>
-                                    <p className="text-xl text-white/60 mb-6">{project.category}</p>
+                                    <h2 className="text-lg md:text-4xl font-bold mb-1 md:mb-3 leading-tight">{project.title}</h2>
+                                    <p className="text-xs md:text-lg text-white/60 mb-2 md:mb-4">{project.category}</p>
 
-                                    <p className="text-white/40 leading-relaxed mb-6 max-w-md">
+                                    <p className="text-white/40 leading-relaxed mb-3 md:mb-6 line-clamp-3 text-xs md:text-base hidden sm:block">
                                         {project.description}
                                     </p>
 
                                     {/* Tech Stack */}
-                                    <div className="flex flex-wrap gap-2 mb-8 max-w-md">
-                                        {project.techStack && project.techStack.map((tech, i) => (
+                                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-6">
+                                        {project.techStack && project.techStack.slice(0, 3).map((tech, i) => (
                                             <span
                                                 key={i}
-                                                className="px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 hover:border-white/20 transition-colors duration-300"
+                                                className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-medium uppercase tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 hover:border-white/20 transition-colors duration-300"
                                             >
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
 
-                                    <div className="overflow-hidden">
+                                    <div className="overflow-hidden mt-auto">
                                         {!project.hideLink && (
-                                            <button className="group relative flex items-center gap-2 text-lg font-medium overflow-hidden">
-                                                <div className="relative overflow-hidden w-full">
-                                                    <RollingText className="font-medium text-lg">View Project</RollingText>
-                                                </div>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
-                                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </button>
+                                            project.link ? (
+                                                <a
+                                                    href={project.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group relative flex items-center gap-1.5 md:gap-2 text-sm md:text-base font-medium overflow-hidden"
+                                                >
+                                                    <div className="relative overflow-hidden w-full">
+                                                        <RollingText className="font-medium text-sm md:text-base">View Project</RollingText>
+                                                    </div>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    </svg>
+                                                </a>
+                                            ) : (
+                                                <button className="group relative flex items-center gap-1.5 md:gap-2 text-sm md:text-base font-medium overflow-hidden">
+                                                    <div className="relative overflow-hidden w-full">
+                                                        <RollingText className="font-medium text-sm md:text-base">View Project</RollingText>
+                                                    </div>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            )
                                         )}
                                     </div>
                                 </div>
