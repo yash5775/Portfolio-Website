@@ -15,7 +15,7 @@ const allProjects = [
         type: "Real-world Project",
         image: "/project1.jpg",
         id: "01",
-        link: "https://pvm-bca-collage-lovat.vercel.app/",
+        link: "https://pvm-bca-collage-two.vercel.app",
         description: "A full-stack college website built with React and Firebase, featuring a custom admin dashboard, dynamic content management, and a responsive UI.",
         techStack: ["React", "Firebase", "Tailwind CSS", "Framer Motion"]
     },
@@ -25,6 +25,7 @@ const allProjects = [
         type: "Real-world Project",
         image: "/project2.jpg",
         id: "02",
+        link: "https://vrundavancomputerclass.vercel.app",
         description: "A dynamic coaching-class website built with React and Firebase, featuring a custom admin dashboard, structured course management, and a fully responsive custom UI.",
         techStack: ["React", "Firebase", "Tailwind CSS", "Admin Panel"]
     },
