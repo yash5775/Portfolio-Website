@@ -23,7 +23,7 @@ const allProjects = [
         title: "Vrundavan Computer Class",
         category: "Coaching Website",
         type: "Real-world Project",
-        image: "/project2.jpg",
+        image: "/vrundavan-computer-class.jpg",
         id: "02",
         link: "https://vrundavancomputerclass.vercel.app",
         description: "A dynamic coaching-class website built with React and Firebase, featuring a custom admin dashboard, structured course management, and a fully responsive custom UI.",
