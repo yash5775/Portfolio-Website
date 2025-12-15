@@ -11,25 +11,25 @@ const projects = [
     {
         title: "PVM BCA College",
         category: "College Website",
-        image: "/project1.jpg",
+        image: "/pvm-bca-college.jpg",
         id: "01"
     },
     {
         title: "Vrundavan Computer Class",
         category: "Coaching Website",
-        image: "/project2.jpg",
+        image: "/vrundavan-computer-class.jpg",
         id: "02"
     },
     {
         title: "KARAM PET – Strap Industries",
         category: "Business Website",
-        image: "/project3.jpg",
+        image: "/karam-pet-strap-industries.jpg",
         id: "03"
     },
     {
         title: "CLOUDY",
         category: "Cloud Storage Web App",
-        image: "/project1.jpg",
+        image: "/project2.jpg",
         id: "04"
     }
 ];
@@ -73,7 +73,7 @@ export default function ProjectsSection() {
                                 src={project.image}
                                 alt={project.title}
                                 fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                                className="object-cover"
                             />
 
                             {/* Overlay Content */}
