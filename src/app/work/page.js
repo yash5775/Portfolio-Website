@@ -33,7 +33,7 @@ const allProjects = [
         title: "KARAM PET – Strap Industries",
         category: "Business Website",
         type: "Real-world Project",
-        image: "/project3.jpg",
+        image: "/karam-pet-strap-industries.jpg",
         id: "03",
         description: "Developed a responsive WordPress-based business website with a custom UI and SEO plugin integration for on-page optimization and improved search visibility.",
         techStack: ["WordPress", "Custom UI", "SEO Plugins"]
