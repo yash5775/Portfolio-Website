@@ -26,8 +26,9 @@ export default function StorySection() {
                         src="/images/profile-new.png"
                         alt="Profile"
                         fill
-                        className="object-cover rounded-md"
                         priority
+                        sizes="(max-width: 768px) 100vw, 80vw"
+                        className="object-cover rounded-md"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-50"></div>
                 </div>

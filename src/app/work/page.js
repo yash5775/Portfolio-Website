@@ -129,6 +129,7 @@ export default function WorkPage() {
                                         src={project.image}
                                         alt={project.title}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />

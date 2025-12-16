@@ -150,12 +150,12 @@ export default function ExperienceSection() {
                         {/* Filling Progress Line (Solid Color) */}
                         <motion.div
                             style={{ scaleY }}
-                            className="absolute top-0 left-0 w-full bg-[#cced00] origin-top h-full shadow-[0_0_20px_#cced00]"
+                            className="absolute top-0 left-0 w-full bg-[#cced00] origin-top h-full shadow-[0_0_20px_#cced00] will-change-transform"
                         />
                         {/* Leading Energy Spark */}
                         <motion.div
                             style={{ top: sparkTop }}
-                            className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_#cced00,0_0_40px_#cced00] z-10"
+                            className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_#cced00,0_0_40px_#cced00] z-10 will-change-transform"
                         />
                     </div>
 
