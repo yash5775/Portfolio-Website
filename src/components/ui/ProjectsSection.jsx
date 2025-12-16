@@ -61,7 +61,7 @@ export default function ProjectsSection() {
 
                 <motion.div
                     style={{ x }}
-                    className="flex gap-4 sm:gap-8 pl-[5vw] md:pl-[20vw]" /* Start with padding so first card isn't edge-to-edge immediately */
+                    className="flex gap-4 sm:gap-8 pl-[5vw] md:pl-[20vw] will-change-transform" /* Start with padding so first card isn't edge-to-edge immediately */
                 >
                     {projects.map((project, index) => (
                         <div
@@ -73,6 +73,7 @@ export default function ProjectsSection() {
                                 src={project.image}
                                 alt={project.title}
                                 fill
+                                sizes="(max-width: 768px) 80vw, 600px"
                                 className="object-cover"
                             />
 
