@@ -31,12 +31,12 @@
 }
 
 html {
-  background-color: var(--color-background);
+  background-color: var(--color-background) !important;
   color: var(--color-foreground);
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--background) !important;
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
