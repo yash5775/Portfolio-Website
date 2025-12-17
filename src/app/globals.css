@@ -23,10 +23,16 @@
 }
 
 :root {
+  color-scheme: light;
   --background: var(--color-background);
   /* Use theme background */
   --foreground: var(--color-foreground);
   /* Use theme foreground */
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 body {
@@ -36,6 +42,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
+  forced-color-adjust: none;
 }
 
 @media (hover: hover) and (pointer: fine) {

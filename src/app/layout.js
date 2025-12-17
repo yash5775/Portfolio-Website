@@ -16,6 +16,11 @@ export const metadata = {
   description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
 };
 
+export const viewport = {
+  colorScheme: "light",
+  themeColor: "#e7e7e7",
+};
+
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import Preloader from "@/components/ui/Preloader";
 import Cursor from "@/components/ui/Cursor";
