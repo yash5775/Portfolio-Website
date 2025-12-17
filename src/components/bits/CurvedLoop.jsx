@@ -36,18 +36,6 @@ const CurvedLoop = ({
         : text;
     const ready = spacing > 0;
 
-    const containerRef = useRef(null);
-    const [isInView, setIsInView] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => setIsInView(entry.isIntersecting),
-            { threshold: 0 }
-        );
-        if (containerRef.current) observer.observe(containerRef.current);
-        return () => observer.disconnect();
-    }, []);
-
     useEffect(() => {
         if (measureRef.current) setSpacing(measureRef.current.getComputedTextLength());
     }, [text, className]);
@@ -62,8 +50,7 @@ const CurvedLoop = ({
     }, [spacing]);
 
     useEffect(() => {
-        if (!spacing || !ready || !isInView) return; // Only run if in view
-
+        if (!spacing || !ready) return;
         let frame = 0;
         const step = () => {
             if (!dragRef.current && textPathRef.current) {
@@ -82,7 +69,7 @@ const CurvedLoop = ({
         };
         frame = requestAnimationFrame(step);
         return () => cancelAnimationFrame(frame);
-    }, [spacing, speed, ready, isInView]); // Added isInView dependency
+    }, [spacing, speed, ready]);
 
     const onPointerDown = e => {
         if (!interactive) return;
@@ -119,7 +106,6 @@ const CurvedLoop = ({
 
     return (
         <div
-            ref={containerRef}
             className="curved-loop-jacket"
             style={{ visibility: ready ? 'visible' : 'hidden', cursor: cursorStyle }}
             onPointerDown={onPointerDown}
