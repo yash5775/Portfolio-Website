@@ -14,14 +14,6 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "YASH | Digital Experiences",
   description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
-  other: {
-    "darkreader-lock": "true",
-  },
-};
-
-export const viewport = {
-  colorScheme: "light",
-  themeColor: "#e7e7e7",
 };
 
 import SmoothScroll from "@/components/ui/SmoothScroll";

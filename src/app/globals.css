@@ -23,26 +23,19 @@
 }
 
 :root {
-  color-scheme: light;
   --background: var(--color-background);
   /* Use theme background */
   --foreground: var(--color-foreground);
   /* Use theme foreground */
 }
 
-html {
-  background-color: var(--color-background) !important;
-  color: var(--color-foreground);
-}
-
 body {
-  background-color: var(--background) !important;
+  background-color: var(--background);
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
-  forced-color-adjust: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
