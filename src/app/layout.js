@@ -15,9 +15,13 @@ export const metadata = {
   title: "YASH | Portfolio",
   description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
   icons: {
-    icon: "/icon.png?v=2",
-    shortcut: "/favicon.ico?v=2",
-    apple: "/apple-touch-icon.png?v=2",
+    icon: [
+      { url: '/favicon.ico?v=2', sizes: 'any' },
+      { url: '/icon.png?v=2', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png?v=2' },
+    ],
   },
 };
 
