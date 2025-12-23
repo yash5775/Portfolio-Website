@@ -14,6 +14,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "YASH | Portfolio",
   description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 import SmoothScroll from "@/components/ui/SmoothScroll";
