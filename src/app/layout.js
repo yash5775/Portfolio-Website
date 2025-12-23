@@ -16,11 +16,11 @@ export const metadata = {
   description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
   icons: {
     icon: [
-      { url: '/favicon.ico?v=2', sizes: 'any' },
-      { url: '/icon.png?v=2', type: 'image/png' },
+      { url: '/favicon-v3.ico', sizes: 'any' },
+      { url: '/icon-v3.png', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png?v=2' },
+      { url: '/apple-icon-v3.png' },
     ],
   },
 };
