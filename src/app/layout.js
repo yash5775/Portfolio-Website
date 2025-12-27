@@ -12,8 +12,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://yash-chaniyara.vercel.app'),
   title: "YASH | Portfolio",
   description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
+  openGraph: {
+    title: "YASH | Portfolio",
+    description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
+    url: 'https://yash-chaniyara.vercel.app',
+    siteName: 'YASH Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "YASH | Portfolio",
+    description: "Senior Creative Developer specializing in 3D interactions and minimalist interfaces.",
+  },
   icons: {
     icon: [
       { url: '/favicon-v3.ico', sizes: 'any' },
