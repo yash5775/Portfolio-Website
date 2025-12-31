@@ -15,7 +15,7 @@ const allProjects = [
         type: "Real-world Project",
         image: "/pvm-bca-college.jpg",
         id: "01",
-        link: "https://pvm-bca-collage-two.vercel.app",
+        link: "https://pvm-bca-college.vercel.app/",
         description: "A full-stack college website built with React and Firebase, featuring a custom admin dashboard, dynamic content management, and a responsive UI.",
         techStack: ["React", "Firebase", "Tailwind CSS", "Framer Motion"]
     },
@@ -35,6 +35,7 @@ const allProjects = [
         type: "Real-world Project",
         image: "/karam-pet-strap-industries.jpg",
         id: "03",
+        link: "https://karam-pet-strap-industries-1992.vercel.app/",
         description: "Developed a responsive WordPress-based business website with a custom UI and SEO plugin integration for on-page optimization and improved search visibility.",
         techStack: ["WordPress", "Custom UI", "SEO Plugins"]
     },
