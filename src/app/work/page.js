@@ -27,7 +27,7 @@ const allProjects = [
         id: "02",
         link: "https://vrundavancomputerclass.vercel.app",
         description: "A dynamic coaching-class website built with React and Firebase, featuring a custom admin dashboard, structured course management, and a fully responsive custom UI.",
-        techStack: ["React", "Firebase", "Tailwind CSS", "Admin Panel"]
+        techStack: ["React", "JavaScript", "Vite", "Tailwind CSS", "Firebase (Firestore, Storage)", "Vercel"]
     },
     {
         title: "KARAM PET – Strap Industries",
@@ -36,8 +36,8 @@ const allProjects = [
         image: "/karam-pet-strap-industries.jpg",
         id: "03",
         link: "https://karam-pet-strap-industries-1992.vercel.app/",
-        description: "Developed a responsive WordPress-based business website with a custom UI and SEO plugin integration for on-page optimization and improved search visibility.",
-        techStack: ["WordPress", "Custom UI", "SEO Plugins"]
+        description: "Developed a high-performance corporate website for a manufacturing company using Next.js (TypeScript), featuring a responsive design, structured product catalog, and SEO-optimized server-side rendering.",
+        techStack: ["Next.js", "TypeScript", "Firebase (Auth, Storage)", "CSS Modules", "Vercel"]
     },
 
 
@@ -50,7 +50,7 @@ const allProjects = [
         id: "06",
         hideLink: true,
         description: "Cloudy is a cloud storage web application built with Next.js (JavaScript) and Firebase, featuring secure user authentication, real-time synchronization, and client-side image optimization using FFmpeg.wasm. The application is deployed on Vercel.",
-        techStack: ["Next.js", "Firebase", "FFmpeg.wasm", "CSS", "Vercel"]
+        techStack: ["Next.js (JavaScript)", "Firebase (Auth, Firestore, Storage)", "CSS", "FFmpeg (WASM)", "JSZip", "Vercel"]
     },
     {
         title: "ONVIA",
