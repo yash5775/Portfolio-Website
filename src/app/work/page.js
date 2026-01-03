@@ -49,8 +49,8 @@ const allProjects = [
         image: "/project2.jpg",
         id: "06",
         hideLink: true,
-        description: "Developed a secure file-storage system with authentication & encrypted data, deployed on EC2 with S3 and IAM configuration. Role: Team Leader.",
-        techStack: ["Node.js", "AWS (EC2, S3, IAM)", "HTML/CSS/JS"]
+        description: "Cloudy is a cloud storage web application built with Next.js (JavaScript) and Firebase, featuring secure user authentication, real-time synchronization, and client-side image optimization using FFmpeg.wasm. The application is deployed on Vercel.",
+        techStack: ["Next.js", "React", "Firebase", "FFmpeg.wasm", "CSS", "Vercel"]
     },
     {
         title: "ONVIA",
@@ -148,7 +148,7 @@ export default function WorkPage() {
 
                                     {/* Tech Stack */}
                                     <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-6">
-                                        {project.techStack && project.techStack.slice(0, 3).map((tech, i) => (
+                                        {project.techStack && project.techStack.map((tech, i) => (
                                             <span
                                                 key={i}
                                                 className="px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-medium uppercase tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 hover:border-white/20 transition-colors duration-300"
