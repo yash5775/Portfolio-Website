@@ -60,7 +60,7 @@ const allProjects = [
         id: "07",
         hideLink: true,
         description: "Built a real-time smart home automation system using Firebase for device control and monitoring. Integrated iOS app, backend, and ESP8266 microcontroller.",
-        techStack: ["Swift", "Firebase", "ESP8266", "C++"]
+        techStack: ["Swift", "ESP8266"]
     }
 ];
 
