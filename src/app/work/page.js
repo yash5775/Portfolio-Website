@@ -50,7 +50,7 @@ const allProjects = [
         id: "06",
         hideLink: true,
         description: "Cloudy is a cloud storage web application built with Next.js (JavaScript) and Firebase, featuring secure user authentication, real-time synchronization, and client-side image optimization using FFmpeg.wasm. The application is deployed on Vercel.",
-        techStack: ["Next.js", "React", "Firebase", "FFmpeg.wasm", "CSS", "Vercel"]
+        techStack: ["Next.js", "Firebase", "FFmpeg.wasm", "CSS", "Vercel"]
     },
     {
         title: "ONVIA",
